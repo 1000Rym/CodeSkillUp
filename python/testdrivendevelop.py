@@ -8,11 +8,11 @@ class TddTest(unittest.TestCase):
 
     def testAdd(self):
         plus = lambda x,y : x + y
-        result = plus(1+2)
+        result = plus(1,2)
         self.assertEqual(result, 3)
 
-    def testAdd(self):
-        minus = lambda x,y : x -y
+    def testMinus(self):
+        minus = lambda x,y : x - y
         result = minus(3,1)
         self.assertEqual(result, 2)
 
