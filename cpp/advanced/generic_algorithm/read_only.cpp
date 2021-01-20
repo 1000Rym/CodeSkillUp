@@ -4,6 +4,8 @@
 // read - only algorithm.
 #include <iostream>
 #include <vector>
+#include <numeric>
+#include <string> // string accumulate is implemented in string::accumuate
 using namespace std; 
 
 void testFind(vector<int> vectInt, vector<string> vectString){
@@ -26,6 +28,51 @@ void testFind(vector<int> vectInt, vector<string> vectString){
     }
 }
 
+void test_foreach(vector<int> vectInt, vector<string> vectString){
+
+    //100 101 102 103 104 105 106 107 108 109 
+    //Happy New Year This Year is 2021 Welcome! 
+
+    for_each(vectInt.begin(), vectInt.end(), [] (int number) {
+        cout<<number<<" ";
+    });
+
+    cout <<endl;
+
+    for_each(vectString.begin(), vectString.end(), [] (string text) {
+        cout<<text<<" ";
+    });
+
+    cout <<endl;  
+}
+
+void test_reverse(vector<int> vectInt, vector<string> vectString){
+
+    //100 101 102 103 104 105 106 107 108 109 
+    //Happy New Year This Year is 2021 Welcome! 
+
+    for_each(vectInt.rbegin(), vectInt.rend(), [] (int number) {
+        cout<<number<<" ";
+    });
+    cout <<endl;
+
+    for_each(vectString.rbegin(), vectString.rend(), [] (string text) {
+        cout<<text<<" ";
+    });
+    cout <<endl;  
+}
+
+void test_accumulate(vector<int> vectInt, vector<string> vectString){
+    int sum = accumulate(vectInt.begin(), vectInt.end(), 0);
+    string concat_string;
+    concat_string = accumulate(vectString.begin(), vectString.end(), concat_string);
+
+    //sum is 1045
+    //cocated string is HappyNewYearThisYearis2021Welcome!
+    cout << "sum is " << sum <<endl;
+    cout << "cocated string is " << concat_string << endl; 
+}
+
 int main(){
     
     //input 100~109
@@ -45,5 +92,8 @@ int main(){
     vectString.push_back("2021");
     vectString.push_back("Welcome!");
 
-    testFind(vectInt, vectString);
+    //testFind(vectInt, vectString);
+    //test_foreach(vectInt, vectString);
+    //test_accumulate(vectInt, vectString);
+    test_reverse(vectInt, vectString);
 }
