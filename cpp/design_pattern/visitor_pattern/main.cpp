@@ -92,7 +92,7 @@ class MonthlySaleCoupon: public Visitor{
     }
 
      void visit (GoldCustomer *e) {
-       cout << e->goldCustomer() << "5 dolar coupon" << endl;
+       cout << e->goldCustomer() << "5 dollar coupon" << endl;
     }
 };
 
@@ -110,7 +110,7 @@ int main(){
 
     SeasonSaleCoupon seasonCoupon;
     MonthlySaleCoupon monthCoupon; 
-
+    
     //Bronze Customer:Mike got 10 % season sale coupon
     //Bronze Customer:Mike got 1 dollar coupon
     //Bronze Customer:March got 10 % season sale coupon
