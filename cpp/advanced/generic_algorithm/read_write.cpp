@@ -94,6 +94,54 @@ void testFill(){
     cout << endl;
 }
 
+void testReplace(){
+    //case 1: replace  origin_str’s pos to count  chars  to new_str.
+    string str =  "Hello, I am Woody."; 
+    string str2 = "forest.";
+    int pos = 12, count = 6; 
+    str.replace(pos, count, str2);
+    cout<<str<<endl; // Hello, I am forest.
+
+    //case 2: replace  origin_str’s first to last  to new_str.
+    str =  "Hello, I am Woody."; 
+    int first = 0, last = 6;
+    str.replace(first, last, str2);
+    cout<<str<<endl;  // forest. I am Woody.
+
+    //case 3: replace  origin_str’s pos1 to count  chars  to new_str's pos2  count  chars.
+    str =  "Hello, I am Woody."; 
+    str2 = "forest.";
+    int pos1 = 0,  count1 = 5, pos2 = 0, count2 = 6; 
+    str.replace(pos1, count1, str2, pos2, count2); 
+    cout <<str<<endl; //forest, I am Woody.
+
+    //case 4:replace  str’s first to last  to first2 to last2.
+    str =  "Hello, I am Woody."; 
+    int first1 = 0, last1 = 6, first2 = 3, last2 = 5; 
+    str.replace(first1, last1, first2, last2); 
+    cout <<str<<endl; // I am Woody.
+
+    //case 5:replace  str’s first to last  to first2 to last2.
+    str =  "Hello, I am Woody."; 
+    pos = 0, count = 6, count2 = 2; 
+    str.replace(pos, count, "Mac", count2); 
+    cout <<str<<endl; //Ma I am Woody.
+
+    //case 6: replace  origin_str’s pos to count chars to cstr 's nullptr.
+    str =  "Hello, I am Woody."; 
+    pos = 0, count = 6; 
+    str.replace(pos, count, "Mac"); 
+    cout <<str<<endl; //Mac I am Woody.
+
+    //case 7: replace  origin_str’s pos to count chars to count2 of ch.
+    str =  "Hello, I am Woody."; 
+    pos = 5, count = 1, count2 =3; 
+    str.replace(pos, count, count2, '!'); 
+    cout <<str<<endl; //Mac I am Woody.
+
+
+}
+
 void testTransform(){
     vector<int> vectInt = {1,2,3,4,5};
     string text = "Hello my name is forest!";
@@ -119,5 +167,5 @@ int main(){
     //testCopy();
     //testSwap();
     //testTransform();
-    testFill();
+    testReplace();
 } 
