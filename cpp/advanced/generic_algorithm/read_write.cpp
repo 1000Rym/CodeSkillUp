@@ -138,8 +138,6 @@ void testReplace(){
     pos = 5, count = 1, count2 =3; 
     str.replace(pos, count, count2, '!'); 
     cout <<str<<endl; //Mac I am Woody.
-
-
 }
 
 void testTransform(){
