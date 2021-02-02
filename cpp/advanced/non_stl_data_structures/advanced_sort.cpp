@@ -91,6 +91,52 @@ void shellSort(int *numbers, int array_size){
     } 
 }
 
+void merge(int *numbers,int array_size,int first_pos, int middle_pos ,int end_pos){
+    int sort_numbers[array_size]; // temp extra memeory is required.
+
+    int i = first_pos; 
+    int j = middle_pos+1; 
+    int k = first_pos;
+
+    // When value i is smaller than middle posistion. 
+    // Compare divided two group put larger element in the sorted_numbers.
+    while(i<=middle_pos && j<end_pos) {
+        if(numbers[i] < numbers[j]){
+            sort_numbers[k++] = numbers[i++];
+        }else{
+            sort_numbers[k++] = numbers[j++];
+        }
+    }
+
+    // Copy remain value.
+    // If first group i remained, i should be less than middle. 
+    while (i<=middle_pos) {
+        sort_numbers[k++] = numbers[i++];
+    }
+    // If second goup j is remained, j should be less than end position.
+    while (j< end_pos){
+        sort_numbers[k++] = numbers[j++];
+    }
+
+    // If all process ends, swap sorted_numbers with original numbers. 
+    for (int l = first_pos ; l < end_pos; l++){
+        numbers[l] = sort_numbers[l];
+    }
+}
+
+// merge sort
+void mergeSort(int *numbers, int array_size, int first_pos, int end_pos){
+    int middle_pos;
+
+    if(first_pos < end_pos){
+        // Divide if first position is larger than last.
+        middle_pos = (first_pos + end_pos)/2;
+        mergeSort(numbers, array_size ,first_pos, middle_pos);
+        mergeSort(numbers, array_size ,middle_pos+1, end_pos);
+        merge(numbers,array_size ,first_pos, middle_pos, end_pos);
+    }
+
+}
 
 int main(){
     const int array_size = 10; 
@@ -101,6 +147,7 @@ int main(){
     //selectionSort(numbers, array_size);
     //insertionSort(numbers, array_size);
     //bubbleSort(numbers, array_size);
-    shellSort(numbers, array_size);
+    //shellSort(numbers, array_size);
+    mergeSort(numbers, array_size, 0, array_size);
     displayNumbers(numbers, array_size);
 }
