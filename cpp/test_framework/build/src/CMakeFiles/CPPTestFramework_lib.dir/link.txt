@@ -1,0 +1,2 @@
+/usr/bin/ar qc libCPPTestFramework_lib.a CMakeFiles/CPPTestFramework_lib.dir/calc.cpp.o CMakeFiles/CPPTestFramework_lib.dir/main.cpp.o
+/usr/bin/ranlib libCPPTestFramework_lib.a
