@@ -26,4 +26,9 @@ deck = FrenchDeck()
 
 print 'Lenght of deck is ' + str(len(deck))
 print ('First deck is the ' + str(deck[0])+', ' 
-'Last deck is the '+str(deck[1]))
+'Last deck is the '+str(deck[-1]))
+print 'First 3 cards are' + str(deck[:3])
+print 'The cards from 12~15 are '+str(deck[12::15])
+print 'Reverse printing: '
+for card in reversed(deck):
+    print card
