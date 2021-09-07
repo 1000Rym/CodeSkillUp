@@ -6,7 +6,13 @@
 - list, tuple, collections.deque
 ### Flat Sequence 
 Physically store the value of the each item with its own memory space.
-- str, bytes, bytearray, [memoryview](https://docs.python.org/ko/3/c-api/memoryview.html), array.arry
+- str, bytes, bytearray, [memoryview](https://docs.python.org/ko/3/c-api/memoryview.html), array.array
+
+### Mutable seqences
+list, bytearray, array.array ,collections.deque, memoryview
+
+### Immutable sequence
+tuple, str, bytes.
 
 ![mutable_vs_immutable](image/figure0201_mutable_imutable.png "mutable vs immutable")
 
@@ -21,5 +27,3 @@ Example:
 
 Note: 
 - List Comprehensions(지능형 리스트)
-
-
