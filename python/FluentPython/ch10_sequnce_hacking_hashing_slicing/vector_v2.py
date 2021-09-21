@@ -1,6 +1,7 @@
 from array import array
 import reprlib
 import math
+import numbers
 
 class Vector:
     typecode = 'd'
@@ -34,11 +35,29 @@ class Vector:
     def __bool__(self):
         return bool(abs(self))
 
+    def __len__(self):
+        """To use len"""
+        return len(self._components)
+
+    def __getitem__(self, index):
+        """To make the object subscriptable"""
+        # array('d', [1.0, 2.0, 3.0]) -> (1.0, 2.0, 3.0)
+        cls = type(self) # <class '__main__.Vector'>
+        if isinstance(index ,slice):
+            return cls(self._components[index])
+        elif isinstance(index, numbers.Integral):
+            return self._components[index]
+        else:
+            msg = '{cls.__name__} indices must be integers'
+            raise TypeError(msg.format(cls=cls))
+
+        return self._components[index]
+
 
     @classmethod
     def frombytes(cls, octets):
         typecode = chr(octets[0])
-        memv = memoryview(octets[1:]).cast(tyypecode)
+        memv = memoryview(octets[1:]).cast(typecode)
         return cls(memv)
 
 if __name__ == '__main__' :
@@ -50,3 +69,6 @@ if __name__ == '__main__' :
     print(f'bytes:{bytes(v1)}')
     print(f'v1 eaqual v2 is {v1 == v2}')
     print(f'abs(v1) == {abs(v1)}')
+    print(f'len(v1) = {len(v1)}')
+    print(f'v1[1] is {v1[1]}')
+    print(f'v1[1:] is {repr(v1[1:])}') 
