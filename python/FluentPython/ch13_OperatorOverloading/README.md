@@ -31,4 +31,4 @@ Python strikes a good balance betweeen flexibility, usablility, and safety by im
 
 - example code: 
     - `__add__()`, `__radd__()`, `__neg__()`, `__mul__()`:  [vector.py](vector.py) 
-    - `__iadd__()`: [bingoaddeble.py](bingoaddable.py)
+    - `__iadd__()`: [bingoaddable.py](bingoaddable.py)
