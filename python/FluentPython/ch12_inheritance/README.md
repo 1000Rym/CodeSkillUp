@@ -22,4 +22,7 @@ There is no formal way in python to state that class is a mixin, so it is recomm
 One restriction applies to ABCs and not to mixins: The concrete methods implmented in an ABC should only collaborate with methods of the same ABC and its uperclasses.
 #### 7. Provide Aggregate Classes to Users.
 If some combination of ABCs or mixins is particularly useful to client code. provide a class that brings them together in a sensible way.
+#### 8. Favor Object Composition Over Class Inheritance.
+
+
 
