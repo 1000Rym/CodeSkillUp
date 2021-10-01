@@ -50,3 +50,74 @@ A generator expression can be understood as a lazy verion of a list comprehensio
     - if the generator expression spans less than couple of lines, Use generator expression, else use generator function. 
 - Example: [sentence_genexp.py](sentence_genexp.py)
 
+### Generator Functions in the Standard Library
+#### Fitering Function
+| Module | Function | Description |
+|:---:|:---:|:---|
+|itertools| compress(it, selector_it) | Consumes two iterables in parallel; yields items from it whenever the corresponding item in selector_it is truthy.|
+|itertools| dropwhile(predicate, it)|Consumes it skipping items while predicate computes truthy, then yields every remaining item (no further checks are made)|
+|(built-in)|filter(predicate, it)|Appliespredicateto each item ofiterable, yielding the item ifpredi cate(item)is truthy; ifpredicateisNone, only truthy items are yielded|
+|itertools|filterfalse(predi cate, it)|Same asfilter, with thepredicatelogic negated: yields items whenever predicate computes falsy|
+|itertools|islice(it, stop) or islice(it, start, stop, step=1)|Yields items from a slice ofit, similar tos[:stop]or s[start:stop:step] except it can be any iterable, and the operation is lazy
+
+- example code: 
+    ```python
+    import itertools
+
+    #iter.compress
+    >>> list(itertools.compress('hello', [1,1,1,0,0,]))
+    ['h', 'e', 'l']
+
+    #iter.dropwhile
+    >>> li = [2,4,5,7,8] #Skip first 2,4
+    >>> list(itertools.dropwhile(lambda x : x %2 == 0, li))
+    [5, 7, 8]
+
+    #filter
+    >>> li = list(range(10))
+    >>> list(filter(lambda x : x%2 ==0, li))
+    [0, 2, 4, 6, 8]
+    #itertools.filterfalse
+    >>> list(itertools.filterfalse(lambda x : x%2 ==0, li))
+    [1, 3, 5, 7, 9]
+
+    #itertools.isslice
+    >>> list(itertools.islice(range(10), 4)) #end
+    [0, 1, 2, 3]
+    >>> list(itertools.islice(range(10), 4,7)) #start end
+    [4, 5, 6]
+    >>> list(itertools.islice(range(10), 4,7,2)) #start end step
+    [4, 6]
+    ```
+#### Mapping generator functions
+| Module | Function | Description |
+|:---:|:---:|:---|
+|itertools|accumulate(it, [func])| Yields accumulated __sums__; if func is provided, yields the result of applying it to the first pair of items, then to the first result and next item, etc|
+|built-in|enumerate(iterable, start=0)|Yields 2-tuples of the form (index, item), where index is counted from start, and item is taken from the iterable|
+|itertools|starmap(func, it)|Applies func to each item of it, yielding the result; the input iterable should yield iterable items iit, and func is applied as func(*iit)|
+
+- example: 
+    ```python
+    # mul
+    >>> list(itertools.accumulate(range(1, 11)))
+    [1, 3, 6, 10, 15, 21, 28, 36, 45, 55]
+    # maximum
+    >>> list(itertools.accumulate(range(1, 11), max))
+    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    # factorial
+    >>> list(itertools.accumulate(range(1, 11), operator.mul))
+    [1, 2, 6, 24, 120, 720, 5040, 40320, 362880, 3628800]
+    
+    #enumerate
+    >>> list(enumerate(('apple','bear','banana','orange','cherry'),1))
+    [(1, 'apple'), (2, 'bear'), (3, 'banana'), (4, 'orange'), (5, 'cherry')]
+
+    #map
+    >>> list(map(lambda a, b: (a,b), range(3),('stone','paper','scissors')))
+    [(0, 'stone'), (1, 'paper'), (2, 'scissors')]
+    
+    #starmap
+    >>> list(itertools.starmap(lambda x,y : x+y, map(lambda x,y : (x,y), range(1,11), range(11,21))))
+    [12, 14, 16, 18, 20, 22, 24, 26, 28, 30]
+
+    ````
