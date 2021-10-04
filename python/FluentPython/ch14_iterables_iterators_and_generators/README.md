@@ -119,5 +119,150 @@ A generator expression can be understood as a lazy verion of a list comprehensio
     #starmap
     >>> list(itertools.starmap(lambda x,y : x+y, map(lambda x,y : (x,y), range(1,11), range(11,21))))
     [12, 14, 16, 18, 20, 22, 24, 26, 28, 30]
+    ```
 
-    ````
+#### multiple input iterables
+| Module | Function | Description |
+|:---:|:---:|:---|
+|itertools|chain(it1, ..., itN)|Yield all items from it1, then from it2 etc., seamlessly|
+|itertools|chain.from_iterable(it)|Yield all items from each iterable produced by it, one after the other,seamlessly|
+|itertools|product(it1, ..., itN, re peat=1)| yields N-tuples made by combining items from each input iterable like nestedforloops could produce; repeat allows the input iterables to be consumed more than once|
+|(built-in)| zip(it1, ..., itN) | Yields N-tuples built from items taken from the iterables in parallel, silently stopping when the first iterable is exhausted |
+|itertools|zip_longest(it1, ..., itN, fillvalue=None)|Yields N-tuples built from items taken from the iterables in parallel, stopping only when the last iterable is exhausted, filling the blanks with the fill value|
+
+
+```python
+#itertools.chain
+>>> list(itertools.chain('ABC',[123,345],range(3)))
+['A', 'B', 'C', 123, 345, 0, 1, 2]
+
+#itertools.chain.from_iterable
+list(itertools.chain.from_iterable(enumerate('ABC')))
+[0, 'A', 1, 'B', 2, 'C']
+
+#itertools.product , with repeat
+>>> for x, y in itertools.product(range(1,10),range(1,10)):
+...     print(f"{x}x{y} = {x*y}") #99단
+1x1 = 1
+1x2 = 2
+1x3 = 3
+...(omitted)
+9x7 = 63
+9x8 = 72
+9x9 = 81
+
+>>> list(itertools.product('ABC', repeat = 2))
+[('A', 'A'), ('A', 'B'), ('A', 'C'), ('B', 'A'), ('B', 'B'), ('B', 'C'), ('C', 'A'), ('C', 'B'), ('C', 'C')]
+
+#zip, itertools.ziplongest
+>>> list(zip('ABC',range(5)))
+[('A', 0), ('B', 1), ('C', 2)]
+>>> list(itertools.zip_longest('ABC',range(5)))
+[('A', 0), ('B', 1), ('C', 2), (None, 3), (None, 4)]
+>>> list(itertools.zip_longest('ABC',range(5), fillvalue="Unset"))
+[('A', 0), ('B', 1), ('C', 2), ('Unset', 3), ('Unset', 4)]
+```
+#### Expend input values 
+
+|Module|Function|Description|
+|:---:|:---:|:---|
+|itertools|combination(it, out_len)|Yield combinations of out_len items from the items yielded by it|
+|itertools|combinations_with_replacement(it, out_len)|Yield combinations of out_len items from the items yielded by it,including combinations with repeated items|
+|itertools|count(start=0, step=1)|Yields numbers starting at start, incremented by step, indefinitely|
+|itertools|cycle(it)|Yields items from it storing a copy of each, then yields the entire sequence repeatedly, indefinitely|
+|itertools|permulations(it, out_len=None)|
+|itertools|repeat(item, [times])|Yield the given item repeadedly, indefinetly unless a number of times is given|
+
+
+```python
+# itertools.combinations, itertools.combinations_with_replacement
+>>> list(itertools.combinations('ABC', 2))
+[('A', 'B'), ('A', 'C'), ('B', 'C')]
+>>> list(itertools.combinations_with_replacement('ABC', 2))
+[('A', 'A'), ('A', 'B'), ('A', 'C'), ('B', 'B'), ('B', 'C'), ('C', 'C')]
+>>> a =itertools.count(10, 2)
+>>> next(a), next(a), next(a)
+(10, 12, 14)
+
+# itertools.cycle(unlimited)
+>>> list(itertools.islice(itertools.cycle('ABCDE'), 10))
+['A', 'B', 'C', 'D', 'E', 'A', 'B', 'C', 'D', 'E']
+
+# itertools.permulations(sequence)
+>>> list(itertools.permutations('ABC',2))
+[('A', 'B'), ('A', 'C'), ('B', 'A'), ('B', 'C'), ('C', 'A'), ('C', 'B')]
+
+# itertools repeat
+>>> list(itertools.repeat('abc',4))
+['abc', 'abc', 'abc', 'abc']
+```
+
+#### Rearrageing generator functions
+|Module| Function | Description |
+|:---:|:---:|:---|
+|itertools|groupby(it, key=None)|Yields 2-tuples of the form (key, group), where key is the grouping criterion andgroupis a generator yielding the items in the group|
+|(built-in)|reversed(seq)|Yields items from seq in reverse order, from last to first; seq must be a sequence or implement the__reversed__special method.|
+|itertools| tee(it, n=2) |Yields a tuple of n generators, each yielding the items of the input iterable independently |
+
+
+```python
+#itertools.groupby(it, key=len), built-in reversed
+>>> fruits = ['apple', 'bear', 'banana', 'grape', 'orange', 'strawberry', 'blueberry','lemon','kiwi']
+>>> fruits.sort(key=len)
+>>> for length, group in itertools.groupby(reversed(fruits), len):
+...     print(f"Lenght:{length} -> {list(group)}")
+...
+Lenght:10 -> ['strawberry']
+Lenght:9 -> ['blueberry']
+Lenght:6 -> ['orange', 'banana']
+Lenght:5 -> ['lemon', 'grape', 'apple']
+Lenght:4 -> ['kiwi', 'bear']
+
+#itertools.tee
+>>> x, y = itertools.tee(range(3),2) #generate n iters independently.
+>>> next(x),next(x)
+(0, 1)
+>>> next(y)
+0
+>>> list(x),list(y)
+([2], [1, 2])
+```
+
+#### Iterable Reducing Functions
+|Module|Function|Description|
+|:---:|:---:|:---|
+|(built-in)| all(it) | Returns True if all items in it are truthy, otherwise False; all([]) returns True |
+|(built-in)| any(it) | Returns True if any item in it is truthy, otherwise False; any([]) returns False |
+|(built-in)| max(it, [key=,] [default=]) | Returns True if any item in it is truthy, otherwise False; any([]) returns False |
+|functools|reduce(func, it, [initial]) | Returns the result of applying func to the first pair of items, then to that result and the third item and so on; if given, initial forms the initial pair with the first item |
+|(built-in)|sum(it, start = 0) | The sum of all items in it, with the optional start value added (use math.fsum for better precision when adding floats)|
+
+### A Closer Look at the iter Function
+`iter` has another trick:
+
+- `iter(func, stop_condition)`
+    - The function pass to paramenter should not contain arguments.
+    - Second argument is the stop conditi9on.
+
+```python
+number = 10
+
+>>> def number_reducer():
+...     global number
+...     number -=1
+...     return number
+...
+>>> reducer_iter = iter(number_reducer, 1)
+>>> for roll in reducer_iter:
+...     print(roll)
+...
+9
+8
+7
+6
+5
+4
+3
+2
+```
+
