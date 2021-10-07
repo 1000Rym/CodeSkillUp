@@ -44,4 +44,33 @@ The `else` can be used in other sementics such as:
         after_call() # close file
     ```
 
+### Using yield from
+- `yield from x expression` does with the x(iterable) objects is to obtain an iterator from it.
+- The main feature of `yield from` is to open a bidirectional channel from the outermost caller to the innermost subgenerator, so that values can be sent and yiled back.
+- Terms used in `yield from` syntax:
+    - delegating generator: The generator function that contians the `yield from` \<itrerable> expression.
+    - subgenerator : The generator obtained from the \<iterable> part of the `yield from` expression.
+    - caler: Client who calls the delegating generator.
 
+- Example:
+    - figure  ![yiled from syntax](figure/yield_from_syntax.png)
+    - code: [coroaverage3.py](coroaverage3.py)
+
+
+- `yield from` features:
+    - Subgenerator yields are passed directly to the caller of delegating generator.
+    - Any values sent to the delegating generator using `send()` are passed directly to the subgenerator.
+        - If sent value is not `None`, subgenerator's `__next__()` method is called.
+        - If the call raises `StopIteration`, the delegating generator is resumed.
+    - Return expr in a gnerator causes `StopIteration` to be raised upon exit from the generator.
+    - The value of the `yield from` expression is the first argument to the `StopIteration` exception raised by the subgenerator when its terminates.
+
+    - other features:
+        - Exceptions (other than `GeneratorExit`) thown into the delegating generator are passed to the `throw()` method of subgenerator. 
+            - If the call raises `StopIteration`, the delegating generator is resumed.
+            - Otherwise propagated to the delegating generator.
+        - If a `GeneratorExit` exception is thrown into the delegating generator(or the delegating generator's `close()` is called), then the `close()` method of the subgenerator is called. 
+            - If there is any exception, it is propagated to the delegating generator.
+            - Otherwiase `GeneratorExit` is raised in the delegating generator.
+- Real life code:
+        
