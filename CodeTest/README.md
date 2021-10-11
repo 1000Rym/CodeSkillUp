@@ -26,4 +26,4 @@ Assume that there coins in 500$, 100$ 50$, 10$. How to return minimum Coins.
 Find Bigger numbers(The problem definition is not explained properly though). 
 - My solution: [bigger_numbers.py](greedy/bigger_numbers.py)
 
-- Note: Although in hardware design `%, *, div` are costing alot, but in software, it is recommended to use this operators than using `-` or `+` with loop. 
+- Note: Although in hardware design `%, *, div` are costing alot, but in software, it is recommended to use this operators than using `-` or `+` with loop.
