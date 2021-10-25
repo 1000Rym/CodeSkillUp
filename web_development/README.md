@@ -11,8 +11,7 @@ This page is made for learning django. The following contents are contained in t
         - The Framework : Django(fast, secure, scalable)
         - The Database : SQLite
 
-
 Reference: 
 - [1] w3school.com
-- [2] developer.mozilla.com
+- [2] developer.mozilla.comt
 
