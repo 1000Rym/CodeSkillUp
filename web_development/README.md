@@ -32,6 +32,30 @@ This page is made for learning django. The following contents are contained in t
                 - `alt` : Alter message when the contents is missing.
             - `<a>`: adding anchor(reference)
 
+- Table's Tag: ([table.html](html/HTML_LEVEL_TWO/table.html))
+    - `<table>`
+        - could add attribute `bolder`
+    - `<thead>` : Table head
+        - `<th>`: Subitem of table head.
+    - `<tr>` : Table Row
+        - `<td>`: Table Column(Subitem of table row).
+
+- Form(`form`:[form.html](html/HTML_LEVEL_TWO/form.html))
+    - `input`
+        - `type="text"`: input text type value.
+        - `type="email"`: input email type value.
+        - `type="password"` : input password type value.
+        - `type="color"`  : choose the color.
+        - `placeholder=` : Show the user hidden hint value.
+        - `required`: The option for fillup the value before submit.
+        - `type="submit"` : post the value.
+        - `lable for`:  Use `lable for` to link the id with `input id`.
+        - Radio Button
+            - `type="radio"` the option value should share same `name`.
+    - Drop down menus
+        - `select` tags with `option` items.
+    - Text Area inputs
+        - `textarea` with `rows` and `cols` attributes.
 
 
 Reference: 
