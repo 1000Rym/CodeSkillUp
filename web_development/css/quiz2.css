@@ -1,0 +1,34 @@
+h1{
+  font-family: 'Lobster', cursive;
+  text-align: center;
+}
+
+table{
+  margin: auto;
+}
+
+td{
+  width: 200px;
+  height: 800px;
+  border: 10px solid #FFFFFF;
+}
+
+#color1{
+  background-color: #EF476F;
+}
+
+#color2{
+  background-color: #FFD166;
+}
+
+#color3{
+  background-color: #06D6A0;
+}
+
+#color4{
+  background-color: #118AB2;
+}
+
+#color5{
+  background-color: #073B4C;
+}

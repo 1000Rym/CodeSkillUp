@@ -1,0 +1,24 @@
+/* This is comment line short key is command + / */
+
+h1{
+  /* with normal color */
+  color: blue;
+}
+
+li {
+  /* rgb(red, green, blue) */
+  color: rgb(255, 97, 1);
+}
+
+p {
+  /* With Hexcode */
+  color : #0895a8
+}
+
+
+h4 {
+  /* rgb(red, green, blue, alpha)
+  alpha 0 - non tranparent(fully opaque)
+  alpha 1 - fully transparent */
+  color : rgba(255, 97, 1, 0.5);
+}

@@ -1,0 +1,54 @@
+
+/* Task # 1 */
+body{
+  background-color:#a8e6ff;
+}
+
+/* Task #2 */
+h1{
+    border: 1px solid black;
+}
+
+/* Task #3 */
+h2{
+  color: purple;
+}
+
+/* Task #4 */
+input{
+  border: 2px solid rgb(144,0,0);
+}
+
+/* Task #5 */
+div p{
+  background: #fffca5;
+}
+
+/* Task #6 */
+#textblock{
+  border: 5px solid gray;
+  width: 800px;
+  height: 400px;
+}
+
+/* Task # 7 */
+a[href="https://www.google.com"]{
+  color:red;
+}
+
+/* Task # 8 */
+#itemone{
+  text-decoration: overline;
+  color: purple;
+}
+
+/* Task 9 */
+.exit{
+  background-color: blue
+  border:4px dashed yellow;
+}
+
+/* Task 10 */
+a:visited{
+  color: blue;
+}

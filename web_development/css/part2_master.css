@@ -1,0 +1,22 @@
+/* All background goes gray */
+body{
+  background: url(https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+  background-repeat: no-repeat;
+}
+
+/* div goes blue */
+div {
+  background: blue;
+  border-color: red;
+  border-width: 3px;
+  border-style:dashed;
+}
+
+p{
+  color: yellow;
+}
+
+span{
+  background: red;
+  color: orange;
+}
