@@ -12,3 +12,5 @@
 - Grid System: The grid system provides the core mechanism by which using Bootstrap allows websites to look good across multiple devices of multiple screen sizes.
     - grid system call will make use of the class = "row".
     - Inside of "row" we have the format: `col-ScreenSize-NumberOfColumns`
+
+- Quiz & Solution: [quiz_main.html](quiz_main.html), [quiz_sign_in.html](quiz_sign_in.html)
