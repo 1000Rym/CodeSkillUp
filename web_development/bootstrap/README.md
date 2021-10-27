@@ -9,6 +9,6 @@
     - [basic1.html](basic1.html))
     - [basic2.html](basic2.html))
 
-- Grid System: The grid system provides the core mechnism by which using Bootstrap allows websites to look good across multiple devices of multiple screen sizes.
+- Grid System: The grid system provides the core mechanism by which using Bootstrap allows websites to look good across multiple devices of multiple screen sizes.
     - grid system call will make use of the class = "row".
     - Inside of "row" we have the format: `col-ScreenSize-NumberOfColumns`
