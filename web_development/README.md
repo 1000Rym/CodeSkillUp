@@ -4,7 +4,8 @@ This page is made for learning django. The following contents are contained in t
 - Django Bootcamp?
     - Front-End : what you see as a user on the website.
         - [HTML](html/README.md)(HyperText Markup Laguage)
-        - CSS(Cascading Style Sheets)
+        - [CSS](css/README.md)(Cascading Style Sheets)
+        - [Bootstrap](bootstrap/README.md)
         - Javascript(Allows you to add interactivity)
     - Back-End : what to show you on the front-end. 
         - The Language : Python

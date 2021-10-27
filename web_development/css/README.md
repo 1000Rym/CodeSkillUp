@@ -44,6 +44,8 @@
     - Structure of the box model: ![boxmodle.png](img/structual_of_box_model.png)
     - example:[box_models.html](box_models.html), [box_models.css](box_models.css)
 
+- Part
+
 
     
 ## Reference

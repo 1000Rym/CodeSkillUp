@@ -44,7 +44,7 @@ a[href="https://www.google.com"]{
 
 /* Task 9 */
 .exit{
-  background-color: blue
+  background-color: blue;
   border:4px dashed yellow;
 }
 
