@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>For Loop</title>
+  </head>
+  <body>
+  <h1>Test a for loop.</h1>
+  <p id="result">Test Reulst is not rendered yet(Click Button to Render).</p>
+  <button onclick="myFunction1()">Click To Run For-In Loop</button>
+  <script>
+    function myFunction1(){
+      var fruits = ["orange", "apple", "bear", "grape"];
+      var text = "For-In Fruits:";
+
+
+      for (var x in fruits){
+        // Get the fruit elements by index from fruits list.
+        text += fruits[x] + " ";
+      }
+      document.getElementById("result").innerHTML = text;
+    }
+  </script>
+
+  <button onclick="myFunction2()">Click To Run For-of Loop</button>
+  <script>
+    function myFunction2(){
+      var fruits = ["orange", "apple", "bear", "grape"];
+      var text = "For-of loops: Fruits:";
+
+
+      for (var fruit of fruits){
+        // Directly use the fruit elements from fruits list.
+        text += fruit + " ";
+      }
+      document.getElementById("result").innerHTML = text;
+    }
+  </script>
+  </body>
+</html>
