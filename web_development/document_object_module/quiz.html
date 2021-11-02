@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Tic Tac Toe</title>
+  </head>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+  <link rel="stylesheet" href="quiz.css">
+  <body>
+    <div class="container">
+      <div class="jumbotron">
+        <h1>Welcome to Tic Tac Toe</h1>
+        <p><a class="btn btn-primary btn-lg" role="button" onclick="resetTicTacToe()">Restart!</a></p>
+      </div>
+
+      <table>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+
+      </table>
+
+    </div>
+
+    <script type="text/javascript">
+      //Function for resetting tictactoe.
+      function resetTicTacToe(){
+        for(element of elements){
+          element.innerText = ""
+        }
+      }
+
+      // Add events on element
+      function addEvents(element){
+          element.addEventListener("click", function(){
+            var current_value = element.innerText;
+            if(current_value === ""){
+              element.innerText = "O"
+            }else if (current_value === "O") {
+              element.innerText = "X"
+            }else{
+              element.innerText = ""
+            }
+          });
+      }
+
+      // Get all td elements.
+      var elements = document.querySelectorAll("td");
+
+      //add events on each item.
+      elements.forEach(addEvents);
+
+    </script>
+  </body>
+</html>
