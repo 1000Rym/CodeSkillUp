@@ -58,10 +58,10 @@
             //execute the command
         }
         ```
-    - For/In : Loops through the properties(or index) of an object.
+    - For/In : Loops through the key from the object.
         ```javascript
-        for (var property_or_index in list_or_dicts){
-            list_or_dicts[property_or_index]
+        for (var key in object){
+            object[key]
         }
         ```
 
@@ -114,6 +114,26 @@ var global_var = func_name(a, b)
     - other methods need to know: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
 
 - array exercise: [exercise3_array.js](exercise2_function.js)
+
+### Object
+- Object is constructed with `key` and `value`
+- Use `for in` loop to access and modify the Object.
+- Support nested value. 
+- Define function by `key: function(){...}`
+
+```javascript
+// Note that the key dosn't need "".
+CarInfo = { vendor: "Toyota", country: "Japan", date: 2017
+            intro: function(){
+                return "This car is made by " + this.vendor+ " in"
+                this.country + " on " + this.date;
+            }
+          }
+
+// However to access the value, we need to add "".  
+CarInfo["vendor"] = "Kia";
+```
+- code: [exercise4_object.js](exercise4_object.js)
 
 
 ## When to add semicolons?
