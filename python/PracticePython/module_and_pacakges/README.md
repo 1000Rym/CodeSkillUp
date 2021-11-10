@@ -42,8 +42,8 @@ modular programming
         - For a module, when `__all__` is not defined, `import *` imports everything(except names starting with an underscore)
 
 ## Subpacakge 
-Use `..` to go relatively parent path of current module's directory.
-Use `.` to access current dir path.
+- Use `..` to go relatively parent path of current module's directory.
+- Use `.` to access current dir path.
 
 ### Example Code.
 - pkg
