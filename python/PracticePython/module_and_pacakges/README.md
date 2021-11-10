@@ -40,5 +40,19 @@ modular programming
     - `__all__` list controls what is imported when `import *` is specified
         - For the package `__all__` is not defined, `import *` does not import anything.
         - For a module, when `__all__` is not defined, `import *` imports everything(except names starting with an underscore)
+
 ## Subpacakge 
 Use `..` to go relatively parent path of current module's directory.
+Use `.` to access current dir path.
+
+### Example Code.
+- pkg
+    - [`__init__.py`](pkg/__init__.py)
+    - sub_pkg1
+        - [`__init__.py`](pkg/sub_pkg1/__init__.py)
+        - [mod1.py](pkg/sub_pkg1/mod1.py)
+        - [mod2.py](pkg/sub_pkg1/mod2.py)
+     - sub_pkg2
+        - [`__init__.py`](pkg/sub_pkg2/__init__.py)
+        - [mod3.py](pkg/sub_pkg2/mod3.py)
+        - [mod4.py](pkg/sub_pkg2/mod4.py)
