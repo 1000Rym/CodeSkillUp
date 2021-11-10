@@ -13,7 +13,8 @@ for direction in directions_input:
     new_pos_x= pos_x+dx[move]
     new_pos_y= pos_y+dy[move]
     
-    if new_pos_x < 1 or new_pos_x > n or new_pos_y <1 or new_pos_y > n :
+    if new_pos_x < 1 or new_pos_x > n \
+        or new_pos_y <1 or new_pos_y > n :
         continue
     else: 
         pos_x, pos_y = new_pos_x, new_pos_y

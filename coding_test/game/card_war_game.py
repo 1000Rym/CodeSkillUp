@@ -49,7 +49,7 @@ class Game:
         self.player2 = Player()
         self.remain = []
 
-    def set_game(self):
+    def __set_game(self):
         self.cards.shuffle()
         count = 0
         for card in self.cards:
@@ -59,16 +59,16 @@ class Game:
                 self.player2.add(card)
             count+=1
 
-    def add_card_to_winner(self, winner):
+    def __add_card_to_winner(self, winner):
         while self.remain:
             winner.add(self.remain.pop())
 
-    def compare(self, card1, card2):
+    def __compare(self, card1, card2):
         return RANK.index(card1[1]) - RANK.index(card2[1])
 
     
     def start(self):
-        self.set_game()
+        self.__set_game()
         round = 1
 
         while len(self.player1) and len(self.player2) :
@@ -78,12 +78,12 @@ class Game:
             self.remain.append(card1)
             self.remain.append(card2)
 
-            if self.compare(card1, card2) > 0 :
+            if self.__compare(card1, card2) > 0 :
                 print(f"round {round} player1{card1} > player2{card2}:")
-                self.add_card_to_winner(self.player2)
-            elif self.compare(card1, card2) < 0:
+                self.__add_card_to_winner(self.player1)
+            elif self.__compare(card1, card2) < 0:
                 print(f"round {round} player1{card1} < player2{card2}:")
-                self.add_card_to_winner(self.player1)
+                self.__add_card_to_winner(self.player2)
             else:
                 print(f"round {round} draw game add to remain:{str(self.remain)}")
 
@@ -103,4 +103,3 @@ if __name__ == "__main__":
     print("Welcome to the war game!")
     my_game = Game()
     my_game.start()
-
