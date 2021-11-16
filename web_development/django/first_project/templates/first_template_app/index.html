@@ -5,13 +5,34 @@
     <meta charset="utf-8">
     <title>First Template HTML Page</title>
   </head>
-  <link rel="stylesheet" href="{% static 'css/my_style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
   <body>
     <h1>Hello this is index html!</h1>
     {{ first_template_app_contents }}
 
     <div>
       <img src="{% static '/images/images.jpeg' %}" alt="oops could not found the images.">
+    </div>
+
+    <div>
+    {% if access_records %}
+    <h2>Find the data from the access list.</h2>
+      <table>
+        <thead>
+          <th> name </th>
+          <th> date </th>
+        </thead>
+
+        {% for access in access_records %}
+        <tr>
+          <td>{{ access.name }}</td>
+          <td>{{ access.date }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    {% else %}
+      <p>Can not find any data from access records.</p>
+    {% endif %}
     </div>
 
   </body>

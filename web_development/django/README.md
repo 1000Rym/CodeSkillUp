@@ -137,3 +137,12 @@ The template will contain the static parts of an Html page.
     - `pip install faker`
     - link: https://faker.readthedocs.io
 - step2: make the mock data with the faker library ([example code](first_project/first_app_populate.py)).
+
+### MTV(Models-Templates-Views)
+- step1: In the [view.py](first_project/first_app/views.py) file, import models.
+- step2: Use the view to query the model for data.
+- step3: Pass results from the model to the template. 
+- step4: Edit the [template](first_project/templates/first_template_app/index.html) so that it is ready to accept and display the data from the model.
+    - `{% <logic(if, for, etc...)> %}`
+    - `{{ <data_only>  }}`
+- step5: Map a URL to the View.
