@@ -51,11 +51,9 @@ def escape_maze(N,M,map_info):
     return map_info[N-1][M-1]
     
 
-
 def main():
     N, M, map_info = input_value()
     escape_maze(N, M, map_info)
     
-
 if __name__ == '__main__':
     main()

@@ -75,6 +75,10 @@ graph_adjacency[2].append((0,5))
     1. 큐에서 노드를 꺼내 해당 노드의 인접 노드 중에서 방문하지 않은 노드를 모두 큐에 삽입하고 방문 처리를 한다. 
     1. 2번 과정을 더 이상 수행할 수 없을 때까지 반복한다. 
 - 예제: [bfs_example.py](search/bfs_example.py)
+
+#### 연습문제: 
+- 아이스크림 찾기: [ice_cream_maker.py](search/ice_cream_maker.py)
+- 미로탈출: [escape_maze.py](search/escape_maze.py) BFS 방식으로 deque(queue)를 사용하여 해결
    
 
 
