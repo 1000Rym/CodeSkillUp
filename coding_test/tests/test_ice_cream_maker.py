@@ -1,5 +1,5 @@
 import unittest
-from ..implementation import ice_cream_maker
+from ..search import ice_cream_maker
 
 class TestIceCreamMaker(unittest.TestCase):
     def test_function1(self):
