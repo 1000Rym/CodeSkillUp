@@ -76,9 +76,28 @@ graph_adjacency[2].append((0,5))
     1. 2번 과정을 더 이상 수행할 수 없을 때까지 반복한다. 
 - 예제: [bfs_example.py](search/bfs_example.py)
 
-#### 연습문제: 
+### 연습문제: 
 - 아이스크림 찾기: [ice_cream_maker.py](search/ice_cream_maker.py)
 - 미로탈출: [escape_maze.py](search/escape_maze.py) BFS 방식으로 deque(queue)를 사용하여 해결
+
+## Sorting Algorithm
+- 선택 정렬 Selection Sort
+    - 가장 작은 데이터를 선택해 맨 앞에 있는 데이터와 바꾸고, 그 다음 작은 데이터를 선택해 앞에서 두 번쨰 데이터와 바꾸는 과정을 반복 
+    - O(N²) 소요
+    - 구현하기 쉽지만 느림
+
+- 삽입정렬 Insertion Sort
+    - 데이터를 하나씩 확인하며, 각 데이터를 적절한 위치에 삽입
+    - 이미 정렬되어 있는 경우, O(N)이 소요된다. 
+    - 
+- 퀵 정렬 Quick Sort
+    - 기준 데이터(pivot)를 설정하고 그 기준보다 큰 데이터와 작은 데이터의 위치를 바꾸는 방법
+    - O(NlogN)
+
+- 코드:[sorting_algorithm.py](sorting/sorting_algorithm.py)
+    
+
+
    
 
 
