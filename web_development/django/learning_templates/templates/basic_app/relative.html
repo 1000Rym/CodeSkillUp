@@ -1,0 +1,6 @@
+<!DOCTYPE html>
+{% extends 'basic_app/basic.html' %}
+  {% block body_block %}
+    <h1>This is the relative page.</h1>
+    <a href="{% url 'basic_app:other'%}">Click here to move other.</a>
+  {% endblock %}

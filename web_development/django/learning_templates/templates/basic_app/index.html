@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+{% extends 'basic_app/basic.html' %}
+  {% block body_block %}
+  {% load my_templates %}
+    <h1>This is the home page.</h1>
+    <h2>{{ text|upper }}</h2>
+    <h2>{{ text|replace_to_ben:"world" }}</h2>
+    <h2>{{ text|cut:"hello" }}</h2>
+    <h2>{{ number|add:"50" }}</h2>
+    <a href="{% url 'basic_app:relative' %}">Click here to move to relative page.</a>
+  {% endblock %}
