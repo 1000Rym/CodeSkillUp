@@ -35,7 +35,12 @@ def insertion_sort(numbers):
 
 def quick_sort(numbers):   
     """ quick sort
+<<<<<<< HEAD
     If some element larger than pivot in left side, else place it to pivots right side.
+=======
+    If some element larger than pivot in left side
+    exchange the element with right side element which larger than the left side. 
+>>>>>>> ee06a0483a376a207bd3317cc1768fef50887fce
     """
     if len(numbers) > 1: 
         # Set the first index as pivot, comare remain elements.
