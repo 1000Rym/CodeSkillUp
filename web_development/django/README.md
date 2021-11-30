@@ -41,7 +41,7 @@
 - Deactivate virtual environment
     ```bash
     # Linux
-    source deactivate <myEnv>
+   conda deactivate
     
     # Windows
     deactivate <myEnv>
@@ -71,13 +71,13 @@
     python manage.py startapp <app_name>
     ```
 - After the command, we can see the following files generated.
-   - `__init__.py` : treat the foler as the python package.
-   - `admin.py` : register the module, so that Django will then use them with Django's admin interface.
-   - `apps.py`: application specific configurations.
-   - `models.py`: store the application's data models.
-   - `tests.py`: test functions to test your code.
-   - `views.py`: functions that handle requests and return response.
-   - migrations folder: stores database specific information as it relates to the models.
+   - `__init__.py` : Treat the foler as the python package.
+   - `admin.py` : Register the module, so that Django will then use them with Django's admin interface.
+   - `apps.py`: Application specific configurations.
+   - `models.py`: Store the application's data models.
+   - `tests.py`: Test functions to test your code.
+   - `views.py`: Functions that handle requests and return response.
+   - Migrations Folder: Stores database specific information as it relates to the models.
 
 
 - Add <my_app> info to the `INSTALLED_APPS` in `<my_project>/settings.py`.
@@ -88,18 +88,18 @@
 ### Django Template
 The template will contain the static parts of an Html page.
 - step1: Add the template directory path from the [`settings.py`](first_project/first_project/settings.py).  
-- step2: Add the first [template app Html page](first_project/templates/first_template_app/index.html) under the ./templates/<template_folder>/<template_app_name>
+- step2: Add the first [template app HTML page](first_project/templates/first_template_app/index.html) under the ./templates/<template_folder>/<template_app_name>
 - step 3: Add the contents inside of the double brackets in the Html Page(`{{ contents }}`) 
 - step 4: From the [view.py](first_project/first_app/views.py) use the `render(request, <path_of_template_app>, context = <my_context>)` to pass the contents.
 
 #### Adding Static
 - step1: From the [`settings.py`](first_project/first_project/settings.py) file, add the STATICFILES_DIRS list variable.
-- step2: On the top of the [Html file](first_project/templates/first_template_app/index.html),  Need to add the following lines to load staticfiles. `{% load static %}` 
+- step2: On the top of the [HTML file](first_project/templates/first_template_app/index.html),  Need to add the following lines to load staticfiles. `{% load static %}` 
 - step3: And we can load the resources from the static folder by mentioning the relative position in `{% static '<path_of_the_file>' %}`
 
 ### Django Models
 - step1: Adding models in the [<my_app>/models.py](/first_project/first_app/models.py)
-- step2: Create Sql databases and update data.
+- step2: Create SQL databases and update data.
     ```shell
     # Initiate entire project
     python manage.py migrate 
@@ -155,7 +155,7 @@ The template will contain the static parts of an Html page.
 
 - How to use?
     - Add [form.py](/basicforms/basicapp/form.py) 
-    - Import form module from the [views.py](/basicforms/basicapp/form.py)
+    - Import form module from the [views.py](/basicforms/basicapp/views.py)
         - Add post action.
     - From the page read the from as the followng.
         - 1 `form.as_p`: Follows the parent form style.
@@ -203,7 +203,7 @@ Main steps for inheritance as the follows:
     ```php
     <!-- Anything outside of this blocks can be inheritated. -->
     {% block <block_name> %}
-    {% bloock endblock %}
+    {% block endblock %}
     ```
 - step4: Extend and call those tags anywhere.
     - Extends the template 
