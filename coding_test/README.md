@@ -136,7 +136,18 @@ graph_adjacency[2].append((0,5))
 - 연습문제: 
     - [ex1_cutcake.py](cut_cake.py)
 
-    
+
+## Dynamic Programming (다이너믹 프로그래밍)
+큰 문제를 작게 나누고, 같은 문제라면 한 번씩만 풀어 문제를 효율적으로 해결하는 알고리즘 기법으로, 메모리 공간을 약간 더 사용하여 연산 속도를 비약적으로 증가시키는 방법. 
+-  Memoization(메모제이션): 한 번 구한 결과를 공간해 메모해두고 같은 식을 다시 호출할 시 메모한 결과를 그대로 가져오는 방법, Caching(캐싱)이라고도 함([memoization_fibo.py](dynamic_programming/memoization_fibo.py)).
+- 전형적인 형태는 결과 저장용 리스트인 DP-Table로 보관하는 bottom-up 방식을 사용한다([memoization_fibo.py](dynamic_programming/memoization_fibo.py) 의 `bottom_up(n)`). 
+
+
+
+
+
+
+
 
 
    
