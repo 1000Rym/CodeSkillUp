@@ -206,8 +206,8 @@ Main steps for inheritance as the follows:
     {% block endblock %}
     ```
 - step4: Extend and call those tags anywhere.
-    - Extends the template 
-    - Add the contents in side of the blocks
+    - Extends the template. 
+    - Add the contents in side of the blocks.
     
     ```php
     {% extends '<template_path>' %}
@@ -232,3 +232,24 @@ Main steps for inheritance as the follows:
     - load the template python file: `{% load <my_templates> %}`
     - load the templatefiltertags. 
 - [Other Reference Link](https://docs.djangoproject.com/en/3.2/howto/custom-template-tags/)
+
+## User Authentication
+- Required libraries for user authentifcation: 
+    - `pip install bcrypt`
+    - `pip install 'django[argon2]'`
+
+- To work with the images:
+    - `pip install pillow`
+
+- Import the following python packages:
+    ```python
+    from django.contrib.auth import authenticate, login, logout
+    from django.http import HTTPResponseRedirect, HTTPResponse
+    from django.core.urlresolvers import reverse
+    from django.contrib.auth.decorators import login_required
+    ```
+
+
+- Reference:
+    - https://docs.djangoproject.com/en/3.2/topics/auth/passwords/
+
