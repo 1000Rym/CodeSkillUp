@@ -152,12 +152,14 @@ step:
 1. 방문하지 않은 노드 중에서 최단 거리가 가장 짧은 노드를 선택
 1. 해당 노드를 거쳐 다른 노드로 가는 비용을 계산하여 최단 거리 테이블을 갱신
 1. 위 과정에서 3과 4를 반복 
+- 시간 복잡도: O(N²) 소요.
 
 노트
 무한 표시 : `int(1e9)`
 
 ##### Priority Queue(Heap Queue)
-Dijkstra Algorithm에서 주로 Heap Queue(Priority Queue)를 사용하면 절차를 간편화 할 수 있다. 
+Dijkstra Algorithm에서 주로 Heap Queue(Priority Queue)를 사용하여 최적화 할 수있다. 
+- 시간 복잡도: O(NlogN)에 해당
 ```python
 import heapq
 q = []
@@ -166,10 +168,17 @@ heapq.heappush(q, (priority, data))
 
 # 데이터를 출력하면, priority에 근거하여 데이터를 Pop 한다. 
 heapq.heappop(q)
-
-
 ```
+-  Code : [dijkstra_algorithm.py](shortest_path/dijkstra_algorithm.py) 
 
+### Floyd-Warshall Algorithm
+모든 지점에서 다른 모든 지점까지의 최단 경로를 모두 구해야 하는 경우에 사용.
+- 단계마다 O(N²)를 통해 시간을 소모하여 모든 경로의 최단 경로를 계산한다. 
+- 시간 복잡도: O(N^3)
+- 단계마다 점화식 Shortest `D[ab] = min(D[ab], D[ak]+D[kb])`를 수행
+    - a 와 b의 최소거리는 a, b로 통하는 모든 거리의 최소값이다,.
+
+- Code: [floyid_wallshall_algorithm..py](shortest_path/floyid_wallshall_algorithm.py)
 
 
 
