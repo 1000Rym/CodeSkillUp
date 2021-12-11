@@ -241,13 +241,19 @@ Main steps for inheritance as the follows:
 - To work with the images:
     - `pip install pillow`
 
-- Import the following python packages:
+- Import the following python packages, add login and logout feature :
+    - Code from [views.py](learning_users/basic_app/views.py)
     ```python
     from django.contrib.auth import authenticate, login, logout
     from django.http import HTTPResponseRedirect, HTTPResponse
-    from django.core.urlresolvers import reverse
+    from django.urls import reverse
     from django.contrib.auth.decorators import login_required
     ```
+
+    - add `user_login(request)`
+        - use login module
+    - add `logout(request)`, `special(request)`
+        - use login_required module as decorator.
 
 
 - Reference:
