@@ -67,6 +67,9 @@ def advanced_dijkstra(graph, start_node, distance_info):
     while q: 
         distance, now = heapq.heappop(q)
         
+        if distance > graph[now] :
+            continue
+        
         for node, dis in graph[now]:
             cost = dis + distance
             
@@ -90,7 +93,7 @@ def main():
         graph[start].append((end, distance))
         
     #print(graph)
-    print(dijecstra_origin(graph, start_node, distance_info, visited_info))
+    print(dijkstra_origin(graph, start_node, distance_info, visited_info))
     print(advanced_dijkstra(graph, start_node, distance_info))
     
 

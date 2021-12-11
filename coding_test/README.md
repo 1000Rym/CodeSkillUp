@@ -156,6 +156,21 @@ step:
 노트
 무한 표시 : `int(1e9)`
 
+##### Priority Queue(Heap Queue)
+Dijkstra Algorithm에서 주로 Heap Queue(Priority Queue)를 사용하면 절차를 간편화 할 수 있다. 
+```python
+import heapq
+q = []
+# 데이터를 입력하면, priority 에근거하여 queue에 들어간다.
+heapq.heappush(q, (priority, data))
+
+# 데이터를 출력하면, priority에 근거하여 데이터를 Pop 한다. 
+heapq.heappop(q)
+
+
+```
+
+
 
 
 
