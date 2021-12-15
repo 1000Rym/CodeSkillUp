@@ -41,8 +41,7 @@ def dijkstra(start, graph):
         
     return dists
             
-        
-
+    
 
 def main():
     node_count, line_count, start_node = map(int, input().split())
@@ -57,7 +56,7 @@ def main():
     condition = lambda x: True if 0 < x < INF else False
     
     results = list(filter(condition, dists))
-    print(len(results,max(results))
+    print(len(results,max(results)))
     
     
 if __name__ == '__main__':
