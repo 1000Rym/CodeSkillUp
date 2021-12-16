@@ -45,8 +45,6 @@ def topology_sort(graph, indegree):
     return result_str 
         
 
-    
-
 def main():
     node_count, edge_count = map(int, input().split())
     indegree = [0] * (node_count + 1)
