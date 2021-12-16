@@ -218,3 +218,8 @@ Cycle 검사방법:
     1. 큐가 빌 때까지 다음의 과정을 반복한다. 
         1. 큐에서 원소를 꺼내 해당 노드에서 출발하는 간선을 그래프에서 제거한다. 
         1. 새롭게 진입차수가 0이 된 노드를 큐에 넣는다. 
+
+### Graph Exercise
+1. [ex1_make_team.py](graph/ex1_make_team.py) 
+1. [ex2_city_division.py](graph/ex2_city_division.py) 
+1. [ex3_curriculm.py](graph/ex3_curriculm.py) 

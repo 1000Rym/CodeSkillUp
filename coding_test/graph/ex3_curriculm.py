@@ -8,7 +8,9 @@ Page 303
 4 1 -1
 4 3 1 -1
 3 3 -1
+
 [output]
+10, 20, 14, 14, 17
 """
 from collections import deque
 
@@ -36,9 +38,6 @@ def topology_sort(costs, graph, indegree):
                 q.append(i)
     
     print(results[1:])
-    
-                
-                
     
     
 def main():
