@@ -255,6 +255,16 @@ Main steps for inheritance as the follows:
     - add `logout(request)`, `special(request)`
         - use login_required module as decorator.
 
+## Class View
+- Define a class which is inherited from `View`
+    - define `get()` method to response.
+    - can not use template.
+
+### Class Template View
+- Define a class that inherited from `TemplateView`
+    - set the basic html file in `template_name`
+    - can inject data from `get_context_data()`
+
 
 - Reference:
     - https://docs.djangoproject.com/en/3.2/topics/auth/passwords/
