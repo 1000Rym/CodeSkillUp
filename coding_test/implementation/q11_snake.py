@@ -9,7 +9,8 @@ K+1 ~ end. 시간 및 방향 정보(L)은 왼쪽, D는 오른쪽
 [출력]
 생존시간
 
-예제: 
+예제 1: 
+input:
 6
 3
 3 4
@@ -19,6 +20,30 @@ K+1 ~ end. 시간 및 방향 정보(L)은 왼쪽, D는 오른쪽
 3 D
 15 L
 17 D
+output :
+9
+
+예제2:
+input: 
+10
+5
+1 5
+1 3
+1 2
+1 7
+1 6
+4
+8 D
+10 D
+11 D
+13 L
+
+output:
+21
+
+예제3:
+
+
 """
 from collections import deque
         
@@ -50,28 +75,36 @@ def solution(apples, directions, map_size):
     directs = list(range(4))
     curr_direct = 0
     
+    time, direct_info = directions.popleft()
     
-    while directions:
-        time, direct_info = directions.popleft()
+    
+    
+    while True:
         
-        while time:
-            new_pos = get_new_step(current, curr_direct)
-            total_time +=1
-            time-=1
+        new_pos = get_new_step(current, curr_direct)
+        total_time +=1
+        
+        print("time", total_time, "new_pos", new_pos, ",snake", snake, "apples", apples)
+        
+        
+        if is_new_pos_valid(new_pos, snake, map_size):
+            snake.append(new_pos)
+            current = new_pos
             
-            if is_new_pos_valid(new_pos, snake, map_size):
-                snake.append(new_pos)
-                current = new_pos
-                
-                if new_pos in apples:
-                    apples.remove(new_pos)
-                else:
-                    snake.popleft()
+            if new_pos in apples:
+                apples.remove(new_pos)
             else:
-                return total_time
+                snake.popleft()
+        else:
+            return total_time
+        
+        if total_time == time: 
+            curr_direct = change_direct(curr_direct, direct_info)
+            if directions: 
+                time, direct_info = directions.popleft()
             
         
-        curr_direct = change_direct(curr_direct, direct_info)
+        
         
     return total_time
     
