@@ -26,6 +26,22 @@ output :
 예제2:
 input: 
 10
+4
+1 2
+1 3
+1 4
+1 5
+4
+8 D
+10 D
+11 D
+13 L
+
+output:
+21
+
+예제3:
+10
 5
 1 5
 1 3
@@ -38,11 +54,8 @@ input:
 11 D
 13 L
 
-output:
-21
-
-예제3:
-
+output
+13
 
 """
 from collections import deque
@@ -119,7 +132,7 @@ def main():
     
     for _ in range(K):
         x,y = map(int, input().split())
-        apples.append((x-1,y-1))
+        apples.append((y-1,x-1))
 
     direction_count = int(input())
     
