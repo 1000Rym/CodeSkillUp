@@ -1,11 +1,14 @@
 """
 블록 이동하기 
+[Input]
+    board = [[0,0,0,1,1],[0,0,0,1,0],[0,1,0,1,1],[1,1,0,0,1],[0,0,0,0,0]]
+[Output]
+    7
+
 """
 
-from copy import deepcopy
-
 def get_next_move(current, board):
-    directions= [(1,0),(-1,0),(0,1),(1,0)]
+    directions= [(1,0),(-1,0),(0,1),(0,-1)]
     moves = []
     
     for direction in directions : 
@@ -16,7 +19,7 @@ def get_next_move(current, board):
             v = leg[1] + direction[1] #veritical
             
             if 0 <= h < len(board) and 0<=v<len(board):
-                if board[h][v] == 0 : 
+                if board[v][h] == 0 : 
                     next_move.add((h,v))
         
         if len(next_move) == 2: 
@@ -40,7 +43,7 @@ def get_rotates (current, board):
                 if 0 <rotate_x <=len(board): 
                     if board[leg[1]][rotate_x] ==0 and board[rotate[1]][rotate_x] == 0: 
                         if (leg, (rotate_x, leg[1])) not in rotates:
-                            rotates.append((leg, (rotate_x, leg[1])))
+                            rotates.append({leg, (rotate_x, leg[1])})
         else: 
             # Leg y eaqual
             rotates_y = [leg[1]+1, leg[1]-1]
@@ -49,7 +52,7 @@ def get_rotates (current, board):
                 if 0<=rotate_y<len(board):
                     if board[rotate_y][leg[0]] == 0 and board[rotate_y][rotate[0]]==0:
                         if (leg, (rotate_y, leg[0])) not in rotates:
-                            rotates.append((leg, (leg[0], rotate_y)))
+                            rotates.append({leg, (leg[0], rotate_y)})
                     
     return rotates
                            
@@ -65,25 +68,50 @@ def print_board(board, current):
 
     for info in show_board:
         print(info)
-
             
+
 def solution(board):
-    current = {(1,0),(0,0)}
+    start = {(0,0),(1,0)}
+    visited = []
+    count = 0
+    
+    visited.append(start)
+    
+    while True:
+        next_moves=[]
+        for position in visited: 
+            new_moves = get_next_move(position, board)
+            new_rotates = get_rotates(position, board)
+            
+            for move in new_moves + new_rotates:
+                if move not in visited:
+                    next_moves.append(move)
+                    
+        if next_moves: 
+            visited.extend(next_moves)
+            count +=1
+ 
+            if {(len(board)-2, len(board)-1),(len(board)-1, len(board)-1)} in next_moves:
+                return count
+        else:
+            return -1
+        
+def test(board):
+    current = {(2,4),(3,4)}
     print_board(board, current)
     
-    # next = get_next_move(current, board)
-    rotates = get_rotates(current, board)
     
-    for rotate in rotates :
-        print("rotate:", rotate)
-        print_board(board, rotate)
-
+    for move in get_next_move(current, board):
+        print(move)
+        print_board(board, move)
+    
+    
+      
 def main():
     board = [[0,0,0,1,1],[0,0,0,1,0],[0,1,0,1,1],[1,1,0,0,1],[0,0,0,0,0]]
-
-    solution(board)
+    print(solution(board))
+    #test(board)
     
-    print(board[0][3])
         
 if __name__ == '__main__':
     main()
