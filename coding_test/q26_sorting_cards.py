@@ -10,20 +10,12 @@ def solution(cards):
         cards.remove(first)
         second = min(cards)
         cards.remove(second)
-        print('cards:',cards)
-        
         total = first + second
-        print('total:',total)
         result += total
-        
-        
         cards.append(total)
         
     
     return result
-    
-        
-    
 
 def main():
     cards = []
