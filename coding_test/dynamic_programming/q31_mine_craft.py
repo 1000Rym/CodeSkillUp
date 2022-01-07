@@ -51,11 +51,9 @@ def main():
         numbers = list(map(int, input().split()))
         mines = [[0]*m for _ in range(n)]
         
-        index = 0
         for i in range(n):
             for j in range(m):
-                mines[i][j] = numbers[index]
-                index +=1
+                mines[i][j] = numbers[m*i +j]
        
         results.append(solution(mines))
         
