@@ -9,8 +9,8 @@ def solution(members):
     f = [1]*len(members)
     
     for i in range(1,len(members)):
-        for j in range(0, i):
-            if members[i]<members[j]:
+        for j in range(0, len(members)):
+            if members[j]>members[i]:
                 f[i] = max(f[i], f[j]+1) 
     
     return len(members)-max(f)
