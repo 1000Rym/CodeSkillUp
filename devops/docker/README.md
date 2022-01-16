@@ -58,9 +58,9 @@ Dockerfiles are text documents that allow you to build images for docker.
 - `EXPOSE 5000`:  Expose the specific port.
 - `CMD python ./launch.py`: Excute the command.
 
-The difference between `RUN`, `CMD`, `ENTRYPOINT`
+### The difference between `RUN`, `CMD`, `ENTRYPOINT`
 - `RUN`: Adding layers when build the docker container, using for installing libs and apps.
-- `CMD`: The default command to run after the container build up, The arguments will be replaced, if user pass the arguments after the `docker run`.
+- `CMD`: The default command to run after the container build up, The arguments will be replaced, if you pass the command line arguments after the `docker run`.
 - `ENTRYPOINT`: The must run command after the container build up. The arguments will not be replaced. 
 
 #### Dockerfile example 01:
@@ -73,3 +73,33 @@ docker build -t qianlin725/hello-world-python:0.0.1.RELEASE .
 # Run the container
 docker run -p 3000:3000 -d qianlin725/hello-world-python:0.0.1.RELEASE
 ```
+
+- Note: building java require two stage build up.
+    - first stage: Use maven to build jar file.
+    - second stage: Use jar file to call REST API.
+
+
+### Push Images to the Dockerhub
+1. Make an account from [dockerhub](https://hub.docker.com/).
+1. `docker login` from your terminal.
+1. Push your image by running command `docker push image_name:tag_info`.
+
+### How to make efficient images?
+- Put the layers(cache) change sensitively to the bottom. 
+    - All the layers located at the bottom of the changed layer will build as a new layer.
+
+### Docker and Microservices
+#### Microsercies
+- Definition: 
+    - > Small autonomous services that work together. - __Sam Newman__.
+    - > In short, the microservice architectural style is an approach to developing a single application as a suite of small services, each running in its own process and communicating with lightweight mechanisms, often an HTTP resource API. These services are built around business capabilities and are independently deployable by fully automated deployment machinery. There is a bare minimum of centralized management of these services, which may be written in different programming languages and use different data storage technologies. - __James Lewis and Martin Flowler__.
+
+- Features:
+    - Exposed by REST. 
+    - Small Well Chosen Deplyable Units.
+    - Cloud Enabled.
+
+- Advantages: 
+    - Flexibility: Easily adapt new technology and process.
+    - Dynamic scaling: Dynamically scale up and scale down by occasions.
+    - Faster release cycles: Fast deployment to the market.
