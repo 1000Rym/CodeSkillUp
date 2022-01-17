@@ -169,5 +169,6 @@ networks:
         ```
     - Check compose: `docker-compose ps`
     - Check validation: `docker-compose config`
+    - pause, unpause, stop, kill, top etc
 
 
