@@ -36,6 +36,10 @@
 - `docker run`: Run the container 
     - `-m` : Limit the memory
     - `--cpu-quota`: Limit the cpu(Total CPU Quota is 100,000).
+    - `--link`: Connect link via two containers.
+    - `--network`: Connect the containers to specific docker network(bridge).
+        - `docker network create docker_network_name`
+    - `--env`: Setting environment variables for the target container.
     - `port_number_from_OS:port_number_from_container`
     - ex: `docker container run -p 5000:5000 -d -m 512m --cpu-quota=50000 in28min/hello-world-java:0.0.1.RELEASE`
 - `docker stats container_id`: Check the status of the docker container. 
@@ -103,3 +107,67 @@ docker run -p 3000:3000 -d qianlin725/hello-world-python:0.0.1.RELEASE
     - Flexibility: Easily adapt new technology and process.
     - Dynamic scaling: Dynamically scale up and scale down by occasions.
     - Faster release cycles: Fast deployment to the market.
+
+### Docker with microservices can provide flexibility
+- Easier development
+    - Adopt new technology faster.
+        - Zero worry about deployment procedures.
+    - Fewer environmental issues.
+        - No more - "It works only in my local."
+- Easier operations
+    - Consistent deployment automation across different environments and different technologies.
+
+#### Example: Connect two micro service containers.
+```shell
+# Currency-exchange microservice: The service provide exchange EUR to INR
+docker run -p 8000:8000 --name=currency-exchange -t in28min currency-exchange:0.0.1-RELEASE
+
+# Currency-exchange microservice: The service provide quantity calculation.
+# Need to be connected to the currency-exchange container, and set env variable CURRENCY_EXCHANGE_SERVICE_HOST.
+docker run -d -p 8100:8100 --name=currency-conversion --link currency-exchange --env CURRENCY_EXCHANGE_SERVICE_HOST=http://currency-exchange  in28min/currency-conversion:0.0.1-RELEASE
+```
+
+### Docker compose
+> Compose is a tool for defining and running multi-container Docker applications. - From Docker docs.
+    - Use [YAML](https://yaml.org/) file : [docker-compose.yml](02_docker_compose/docker-compose.yml)
+
+- YAML Example
+```yaml
+# First Docker Compose Example
+version: 1.0
+services:
+  currency-exchange: 
+    image: in28min/currency-exchange:0.0.1-RELEASE
+    ports:
+      - "8000:8000"
+    restart: always
+    networks:
+      - currency-compose-network
+  
+  currency-conversion:
+    image: in28min/currency-conversion:0.0.1-RELEASE
+    ports:
+      - "8100:8100"
+    restart: always
+    environment:
+      CURRENCY_EXCHANGE_SERVICE_HOST: http://currency-exchange
+    depends_on:
+      - currency-exchange
+    networks:
+      - currency-compose-network
+networks:
+  currency-compose-network:
+```
+
+- Running Command for docker-compose: 
+    - Run interactively: `docker-compose up`
+    - Shut down docker compose: `docker-compose down`
+    - Run background(detach mode):
+        ```shell
+        docker-compose up -d
+        docker-compose logs
+        ```
+    - Check compose: `docker-compose ps`
+    - Check validation: `docker-compose config`
+
+
