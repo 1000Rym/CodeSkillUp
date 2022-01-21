@@ -185,13 +185,187 @@ mongoDB database: physical container for collections of documents.
         client.close()
         ```
 ## Redis
+### What is redis?
+- Stands for `Re`mote `Di`ctionary `Se`rver.
+- In-Memory Database(Cache)
+    - Fast and  performant DB
+    - Faster Test
+    - Schemless
+- Often used as __Cache__ to improve performance.
+- Fully-Fledged primary database which can store and persist multiple data-formats.
+    - Redis core supports the following features:
+        - RediSearch(Elastic Search)
+        - RedisGraph(Graph)
+        - RedisTimeSeries(Relational)
+        - RedisJSON(Documents)
+- How does redis persist data?
+    - Use replicas to restore.
+    - Regular Snapshotting + AOF(Append Only File, Log)
+    - Storing data on Separate Infrastructure Storage like(AWS)
+- Features:
+    - Persist Storing Data
+        - Use replicas to restore.
+        - Regular Snapshotting + AOF(Append Only File, Log)
+        - Storing data on Separate Infrastructure Storage.
+    - Redis on Flash: Optimize data stored in RAM(Frequently) and infrequently used data stored in SSD(Infrequently).
+    - Scalable: 
+        - Clusting: Master and Replicas
+        - Sharding: Dive datasets in to smaller chunks and distribute storing horizentally.
+    - Active-Active Geo Distributions: High availibility and performance across multiple geographic locations(Availible in Redis Enterprise).
 
+### Installing and configuring Redis
+- Installing the redis
+    ```shell
+    $ redisurl="http://download.redis.io/redis-stable.tar.gz"
+    $ curl -s -o redis-stable.tar.gz $redisurl
+    $ sudo su root
+    $ mkdir -p /usr/local/lib/
+    $ chmod a+w /usr/local/lib/
+    $ tar -C /usr/local/lib/ -xzf redis-stable.tar.gz
+    $ rm redis-stable.tar.gz
+    $ cd /usr/local/lib/redis-stable/
+    $ make && make install
+    ```
+- Start up the redis server and check the version, executive bundles.
+    ```shell
+    $ redis-server
+    $ redis-cli --version
+
+    # check the snapshots of executables that come bundled with Redis
+    $ls -hFG /usr/local/bin/redis-* | sort
+    /usr/local/bin/redis-benchmark*
+    /usr/local/bin/redis-check-aof@
+    /usr/local/bin/redis-check-rdb@
+    /usr/local/bin/redis-cli*
+    /usr/local/bin/redis-sentinel@
+    /usr/local/bin/redis-server*
+    ```
+- Configuring Redis
+    ```shell
+    $ sudo su root
+    $ mkdir -p /etc/redis/
+    $ touch /etc/redis/6379.conf
+    
+    # vim and write follwing contents in the 6379.conf
+    # /etc/redis/6379.conf
+    port              6379
+    daemonize         yes
+    save              60 1
+    bind              127.0.0.1
+    tcp-keepalive     300
+    dbfilename        dump.rdb
+    dir               ./
+    rdbcompression    yes
+
+    # config redis-server
+    $ redis-server /etc/redis/6379.conf
+    ```
+
+- Confirm that the redis server is alive.
+    ```shell
+    # Check through the redis-cli
+    $ redis-cli
+    127.0.0.1:6379> ping
+    PONG
+
+    # Check the status of redis-servers' process
+    $ pgrep redis-server
+    ```
+
+- Kill the redis server
+    ```shell
+    pkill redis-server
+    ```
+
+### Adding data via Redis.
+A Redis database holds `key:value` pairs and supports commands such as `GET`, `SET`, `DEL` and [hundred of commands](https://redis.io/commands). 
+- keys: string type.
+- values: string, list, hashes, sets and others such as([geospatial items](https://redis.io/commands#geo)and [stream](https://redis.io/commands#stream)) types.
+- Many of Redis commands operate in constant BigO(1) time.
+
+Basic Commands for Using Redis:
+```shell
+# Set and get Data
+127.0.0.1:6379> SET USER1 Benedict
+OK
+
+127.0.0.1:6379> GET USER1
+"Benedict"
+
+127.0.0.1:6379> GET USER2
+(nil)
+
+# MSET(Multiple Set) and MGET(Multiple Get)
+127.0.0.1:6379> MSET USER1 Benedict USER2 Carl USER3 Tom
+OK
+
+127.0.0.1:6379> MGET USER1 USER2 USER3 USER4
+1) "Benedict"
+2) "Carl"
+3) "Tom"
+4) (nil)
+
+# To Check the key Exist
+EXISTS USER1
+(integer) 1
+# Hash Set(HSET) data.
+127.0.0.1:6379> HSET team1 member1 Benedeict
+127.0.0.1:6379> HSET team1 member2 Carl
+127.0.0.1:6379> HSET team1 member3 Kevin
+
+# Hash Multiple SET(HMSET)data
+127.0.0.1:6379> HSMET team1 member1 Benedeict member2 Carl Member3 Kevin
+
+# Hash Get ALL(HGETALL) data
+127.0.0.1:6379> HGETALL team1
+1) "member1"
+2) "Benedeict"
+3) "member2"
+4) "Carl"
+5) "member3"
+6) "Kevin"
+
+# Clear database and Quit
+127.0.0.1:6379> FLUSHDB
+OK
+127.0.0.1:6379> QUIT
+```
+
+### Other data types and commands(Hashes, Sets, Lists)
+- Hashes: Commands to operte on hashes begin with an H(HSET, HGET, HGETALL HMSET)
+- Sets: Commands to operate with an S, which gets the number of elements at the set value corresponding to a given key.
+- Lists: Commands to operate on lists begin with an `L` or `R`. The `L` and `R` refers to which side of the lists' pipe line operate on. There are also commands for `B` which referes blocking which dosen't allow other commands interupt the block command executes.
+
+|Type|Commands|
+|:---:|:---|
+|Sets| SADD, SCARD, SDIFF, SDIFFSTORE, SINTER, SINTERSTORE, SISMEMBER, SMEMBERS, SMOVE, SPOP, SRANDMEMBER, SREM, SSCAN, SUNION, SUNIONSTORE|
+|Hashes| HDEL, HEXISTS, HGET, HGETALL, HINCRBY, HINCRBYFLOAT, HKEYS, HLEN, HMGET, HMSET, HSCAN, HSET, HSETNX, HSTRLEN, HVALS|
+|Lists|	BLPOP, BRPOP, BRPOPLPUSH, LINDEX, LINSERT, LLEN, LPOP, LPUSH, LPUSHX, LRANGE, LREM, LSET, LTRIM, RPOP, RPOPLPUSH, RPUSH, RPUSHX|
+|Strings|	APPEND, BITCOUNT, BITFIELD, BITOP, BITPOS, DECR, DECRBY, GET, GETBIT, GETRANGE, GETSET, INCR, INCRBY, INCRBYFLOAT, MGET, MSET, MSETNX, PSETEX, SET, SETBIT, SETEX, SETNX, SETRANGE, STRLEN|
+
+### Using Redis with python: redis-py
+redis-py is a pythone client library which let you talk to Redis server via python calls.
+- Basic
+    ```python
+    import redis
+    r.mset( "user1":"benedict", "user2":"carl", "user3":"kevina"})
+    r.get("user2")
+
+    # printed result via python-cli 
+    b'carl'
+
+    # result through redis
+    127.0.0.1:6379> GET user3
+    "kevina"
+    ```
+- Advanced: Checkout the Example: [PyHats.com](https://realpython.com/python-redis/#example-pyhatscom)
 ## HBase
 
 ## Reference
 - Mongo DB: [Python and MongoDB: Connecting to NoSQL Databases](https://realpython.com/introduction-to-mongodb-and-python/)
     - [MonogoDB from Dockerhub](https://hub.docker.com/_/mongo)
 - Redis: [How to Use Redis With Python](https://realpython.com/python-redis/)
+    - [Introducing Redis](https://www.youtube.com/watch?v=OqCK95AS-YE)
 - HBase 
     - [HBase 란 무엇인가?](https://loustler.io/data_eng/what-is-hbase/)
     - [HBase 개념 정리](https://cyberx.tistory.com/164) 
