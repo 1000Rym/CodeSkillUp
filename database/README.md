@@ -95,14 +95,95 @@ mongoDB database: physical container for collections of documents.
         - replaceOne: Replace the entire documents.
     - Delete Operations: `.deleteOne(), deleteMany()`
 
+### Running mongo container(docker)
+1. Pull the [mongodb](https://hub.docker.com/_/mongo) image from the dockerhub.
+1. Run the docker container with default port: 27017
+    ``` shell
+    docker run -d -p 27017:27017 --name my-mongo mongo:latest
+    ```
+
 ### Using MongoDB with PyMongo 
 [pymongo](https://pypi.org/project/pymongo/) is a python dirver for MongoDB.
-```shell
-pymongo
-```     
+- Example Code: [tutorial_pymongo.py](tutorial_pymongo.py)
 
 
+- Steps for using mongo db with python.
+    - Import pymongo and initiailize mongo client.
+        ```python
+        from pymongo import MongoClient
 
+        # Use default setting : host = 'client', port=27017
+        client = MongoClient()
+        
+        # Use custom port with network address
+        client = MonogoClient(host = 'localhost', port = 27017)
+
+        # Use mongodb with url
+        client = MongoClient("mongodb://localhost:27017")
+        ```    
+    - Access DB
+        ```python
+        # Access db with dictionary-style. 
+        db = client['my_db']
+
+        # Access db with mongo shell style.
+        db = client.my_db
+        ```
+    - Specify the collection in db.
+        ```python
+        my_collection = db.my_db
+        ```
+
+    - Make dictionary type storing data.
+        ```python
+        tutorial1 = {
+            "title": "Working With JSON Data in Python",
+            "author": "Lucas",
+            "contributors": [
+                "Aldren",
+                "Dan",
+                "Joanna"
+            ],
+            "url": "https://realpython.com/python-json/"
+        }
+
+        tutorial2 = {
+            "title": "Python's Requests Library (Guide)",
+            "author": "Alex",
+            "contributors": [
+                "Aldren",
+                "Brad",
+                "Joanna"
+            ],
+            "url": "https://realpython.com/python-requests/"
+        }
+        ...
+        ```
+
+    - Insert data(One or Many)
+        ```python
+        import pprint
+        
+        # Insert One data
+        result = my_collection.insert_one(tutorial1)
+
+        # Insert multiple data.
+        result = my_collection.insert_many([tutorial2, tutorial3])
+        ```
+
+    - Retrieve data with [pprint](https://docs.python.org/3/library/pprint.html#:~:text=The%20pprint%20module%20provides%20a,representation%20may%20not%20be%20loadable.) module.
+        ```python
+        import pprint
+
+        for doc in my_collectin.find():
+            pprint.pprint(doc)
+        ```
+
+    - Establish the connection
+    Note that the close is an expensive operation. It is suggested to call `.close()` operation when closing the application. 
+        ```python
+        client.close()
+        ```
 ## Redis
 
 ## HBase
