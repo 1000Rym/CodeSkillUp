@@ -180,13 +180,99 @@ There are follwing 3 types of acces modifiers in c++:
 
 ## Storage Classes in C++
 Describe features of a variable/function. basically include scope, visibility and life-time.
-- `auto`:
-- `register`:
-- `extern`:
-- `static`:
-- `mutable`: 
- 
+- `auto`: Provides type inference capabilitie, Using `auto` might increase compiler phase, however it does not affect the run time of the program.
+- `extern`: A global variable initilized with a leagal value where it is declared in order to be used elsewhere.
+    - Can be accessed within any function/block. 
+    - The main purpose of using extern variables is that they can be accessed between two different files, which are part of a large program.
+    - A normal global variable can be changed as a extern as well by placing the keyword `extern`.
+- `static`: Preserve the value of their last use in their scope. The value can only be initilized once and exsit until the termination of the program([ex03_static_var.cpp](ex03_static_var.cpp)).
+- `register`: Have the same functionality as that of the `auto` variables. The only difference is that the compiler tries to store these varibles in the __register__ if a free register is available. 
+    - Improves the running time of the program.
+    - We can not obtain the address of a register varible using pointers.
+- `mutable`:  Adding a `mutable` to a variable allows a const pointer to change members.
+## Operators in C/C++
+The operators supported in the C/C++.
+|   Type                |   Operator                        |
+|   :---:               |   :---:                           |
+| Unary Operator        | `++`,`--`                         |
+| Arthimetic Operator   | `+`,`-`,`*`,`/`,`%`               | 
+| Relational Operator   | `<`,`<=`,`>`,`>=`, `==`, `!=`     | 
+| Logical Operator      | `&&`, `||`, `!`                   | 
+| Bitwide Operator      | `&`, `|`, `<<`, `>>`, `~`, `^`    | 
+| Assignment Operator   | `=`, `+=`, `-=`, `*=`, `/=`, `%=` | 
+| Tenary(Conditional) OP| `?:`                              |
+| Other Operators       | `sizeof()` , Comma OP: `,` ([ex05_comma_op.cpp](ex05_comma_op.cpp))|
+
+## Loops in C/C++
+There are two types of loops in C++. They are __Entry Controlled Loops__ and __Exit Controlled Loops__.
+- Entry Contolled Loops
+    - `for` 
+        ```cpp
+        for (initilization expr; condition expr; update expr)
+        // body of the loop.
+        ``` 
+    - `while` 
+        ```cpp
+        initilization expr;
+        while (condition expr)
+        {
+            statements
+        } 
+        ```
+- Exit Controlled Loops
+    - `do-while` 
+        ```cpp
+        initilization expr;
+        do
+        {
+
+        } while(condition expr);
+        ```
+## Decision Making in C/C++
+Following keywords `if`, `else if`, `else`, `switch` are used in C/C++.
+```cpp
+if (condition){
+    expr1
+}else if(condition){
+    expr2
+}
+    //...
+else{
+    expr3
+}
+
+switch(arg){
+    case condition:
+        expr; 
+        break;
+        //...
+    default: 
+        expr;
+}
+```
+## Forward Declaration
+__Forward Declaration__ referes to the beforehand declaration of the syntax or signature of an identifer, variable, function, class, etc. Prior to its usage to avoid compile error(done later in the program).
+- example code:
+    ```cpp
+    // Forward declaration.
+    void sum();
     
+    // Definition of sum() delcared previously. 
+    void sum{
+        //Body
+    }    
+    ```
+- example case: [ex06_forward_declaration.cpp](ex06_forward_declaration.cpp)
+
+## Errors in C++
+We may find several error types in the C++ as follows:
+- __Syntax Error__ : Violatees the rules of writing C/C++ syntax known as C/C++.
+- __Run-time Error__: Errors which occur during program execution(run-time) after successful complitions(Division Error).
+- __Linker Error__: Link different object files with the main compiled object.
+- __Logical Error__: On complition and execution of a program, desired output is not obtained when certain input values are given. 
+- __Semantic Error__: The statements written in the progrram are not meaning to the compiler.
+
+
 
 
 
