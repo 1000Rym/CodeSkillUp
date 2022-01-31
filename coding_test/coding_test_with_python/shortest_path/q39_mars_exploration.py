@@ -84,7 +84,6 @@ def solution(n, map_info):
           
 
 def main():
-    
     case_count = int(input())
     answers = []
     

@@ -28,3 +28,46 @@ Quiz 숨바꼭질 Page 390
 [output]
 4 2 3
 """
+import heapq
+
+INF = int(1e9)
+
+def solution(map_info, n):
+    distance_info = [0]+[INF]*(n-1)
+    start_node = 0
+    q=[]
+    heapq.heappush(q, (0, start_node))    
+    
+    while q:
+        rank, pos = heapq.heappop(q)
+        
+        for node in map_info[pos]:
+            new_rank = rank + 1
+            
+            if new_rank < distance_info[node] :
+                distance_info[node] = new_rank
+                heapq.heappush(q,(new_rank, node))
+                
+    
+    max_dist = max([node for node in distance_info if node != INF])
+    target_node = distance_info.index(max_dist)
+    max_count = distance_info.count(max_dist)
+    
+    return max_dist, target_node, max_count, distance_info
+    
+
+def main():
+    # Assume that n is node, m is edge.
+    n, m = map(int, input().split())
+    
+       
+    map_info = [[] for _ in range(n)]
+    
+    for _ in range(m):
+        start, end = map(int, input().split())
+        map_info[start-1].append(end-1)
+        
+    print(solution(map_info, n))            
+
+if __name__ == '__main__':
+    main()
