@@ -24,7 +24,7 @@ Assume that there coins in 500$, 100$ 50$, 10$. How to return minimum Coins.
 
 ### Problem2: bigger numbers(큰 수의 법칙)
 Find Bigger numbers(The problem definition is not explained properly though). 
-- My solution: [bigger_numbers.py](greedy/bigger_numbers.py)
+- My solution: [bigger_numbers.py](coding_test_with_python/greedy/bigger_numbers.py)
 
 - Note: Although in hardware design `%, *, div` are costing alot, but in software, it is recommended to use this operators than using `-` or `+` with loop.
 
@@ -64,7 +64,7 @@ graph_adjacency[2].append((0,5))
     1. 스택의 최상단 노드에 방문하지 않은 인접 노드가 있으면 그 인접 노드를 스택에 넣고 방문 처리를 한다. 방문하지 않은 인접한 노드가 없으면 스택에서 최상단 노드를 꺼낸다. 
     1. 2번과정을 더 이상 수행할 수 없을때까지 반복한다. 
 
-- 예제: [dfs_example.py](search/dfs_example.py)
+- 예제: [dfs_example.py](coding_test_with_python/search/dfs_example.py)
 
 ### BFS(Breath First Search)
 - 너비 우선 탐색, 가까운 노드부터 넓게 탐색하는 알고리즘
@@ -77,8 +77,8 @@ graph_adjacency[2].append((0,5))
 - 예제: [bfs_example.py](search/bfs_example.py)
 
 ### 연습문제: 
-- 아이스크림 찾기: [ice_cream_maker.py](search/ice_cream_maker.py)
-- 미로탈출: [escape_maze.py](search/escape_maze.py) BFS 방식으로 deque(queue)를 사용하여 해결.
+- 아이스크림 찾기: [ice_cream_maker.py](coding_test_with_python/search/ice_cream_maker.py)
+- 미로탈출: [escape_maze.py](coding_test_with_python/search/escape_maze.py) BFS 방식으로 deque(queue)를 사용하여 해결.
 
 ## Sorting Algorithm
 - 선택 정렬 Selection Sort
@@ -109,11 +109,11 @@ graph_adjacency[2].append((0,5))
         - 장점: 정해진 작은 범위내에서 빠르게 정렬 가능.
         - 단점: 범위가 정해지지 않을 경우 사용할 수 없거나,범위가 큰 경우 메모리 수요가 크기에 효율적이지 않음.
 
-- 코드: [sorting_algorithm.py](sorting/sorting_algorithm.py)
+- 코드: [sorting_algorithm.py](coding_test_with_python/sorting/sorting_algorithm.py)
 - 연습문제: 
-    - [ex1_top2bottom.py](sorting/ex1_top2bottom.py)
-    - [ex2_exchangearrays.py](sorting/ex2_exchangearrays.py)
-    - [ex3_printfromlowscore.py](sorting/ex3_print_from_lowscore.py)
+    - [ex1_top2bottom.py](coding_test_with_python/sorting/ex1_top2bottom.py)
+    - [ex2_exchangearrays.py](coding_test_with_python/sorting/ex2_exchangearrays.py)
+    - [ex3_printfromlowscore.py](coding_test_with_python/sorting/ex3_print_from_lowscore.py)
 
 ## Searching Algorighm
 - Sequential Search(순차 탐색)
@@ -124,7 +124,7 @@ graph_adjacency[2].append((0,5))
     - 탐색하고자 하는 범위의 __시작점, 끝점, 중간점__ 중, 중간점 위치에 있는 데이터를 반복적으로 비교해서 원하는 데이터를 찾는 과정이다.
     - 이미 정렬되어 있는 구조에서 사용.
     - O(logN)
-    - 코드: [binary_search.py](search/binary_search.py)
+    - 코드: [binary_search.py](coding_test_with_python/search/binary_search.py)
 
 ### Binary Search Tree(이진 탐색 트리)
 - __왼쪽 자식 노드 <  부모노드 < 오른쪽 자식노드__ 의 관계가 성립
@@ -134,13 +134,13 @@ graph_adjacency[2].append((0,5))
     - `rstrip()`을 해주는 이유는 엔터마크를 없애기 귀함이다.
 
 - 연습문제: 
-    - [ex1_cutcake.py](cut_cake.py)
+    - [ex1_cutcake.py](coding_test_with_python/search/cut_cake.py)
 
 
 ## Dynamic Programming (다이너믹 프로그래밍)
 큰 문제를 작게 나누고, 같은 문제라면 한 번씩만 풀어 문제를 효율적으로 해결하는 알고리즘 기법으로, 메모리 공간을 약간 더 사용하여 연산 속도를 비약적으로 증가시키는 방법. 
 -  Memoization(메모제이션): 한 번 구한 결과를 공간해 메모해두고 같은 식을 다시 호출할 시 메모한 결과를 그대로 가져오는 방법, Caching(캐싱)이라고도 함([memoization_fibo.py](dynamic_programming/memoization_fibo.py)).
-- 전형적인 형태는 결과 저장용 리스트인 DP-Table로 보관하는 bottom-up 방식을 사용한다([memoization_fibo.py](dynamic_programming/memoization_fibo.py) 의 `bottom_up(n)`). 
+- 전형적인 형태는 결과 저장용 리스트인 DP-Table로 보관하는 bottom-up 방식을 사용한다([memoization_fibo.py](coding_test_with_python/dynamic_programming/memoization_fibo.py) 의 `bottom_up(n)`). 
 
 
 ## 최단 경로 알고리즘
@@ -169,7 +169,7 @@ heapq.heappush(q, (priority, data))
 # 데이터를 출력하면, priority에 근거하여 데이터를 Pop 한다. 
 heapq.heappop(q)
 ```
--  Code : [dijkstra_algorithm.py](shortest_path/dijkstra_algorithm.py) 
+-  Code : [dijkstra_algorithm.py](coding_test_with_python/shortest_path/dijkstra_algorithm.py) 
 
 ### Floyd-Warshall Algorithm
 모든 지점에서 다른 모든 지점까지의 최단 경로를 모두 구해야 하는 경우에 사용.
@@ -178,7 +178,7 @@ heapq.heappop(q)
 - 단계마다 점화식 Shortest `D[ab] = min(D[ab], D[ak]+D[kb])`를 수행
     - a 와 b의 최소거리는 a, b로 통하는 모든 거리의 최소값이다,.
 
-- Code: [floyid_wallshall_algorithm..py](shortest_path/floyid_wallshall_algorithm.py)
+- Code: [floyid_wallshall_algorithm..py](coding_test_with_python/shortest_path/floyid_wallshall_algorithm.py)
 
 ### Disjoint Sets(서로소 집합)
 서로 중첩이 되지 않은 집합으로 트리를 만드는 경우 절차:
@@ -186,14 +186,14 @@ heapq.heappop(q)
     1. A와 B의 루트 노드 A', B'를 각각 찾는다. 
     1. A'를 B의 루트 노드로 설정한다. 
 1. 모든 Union 연산을 처리할 때까지 1번과정을 반복한다. 
--  Code : [disjoint_sets.py](graph/disjoint_sets.py) 
+-  Code : [disjoint_sets.py](coding_test_with_python/graph/disjoint_sets.py) 
 
 Cycle 검사방법:
 1. 각 간선을 확인하며 두 노드의 루트 노드를 확인
     1. 루트 노드가 다르다면 두 노드에 대해 병합 연산을 수행
     1. 루트 노드가 서로 같다면 (Cycle)이 발생
 1. 그래프에 포함되어 있는 모든 간선에 대해 1번 과정을 반복
--  Code : [disjoint_sets_check_cycle.py](graph/disjoint_sets_check_cycle.py) 
+-  Code : [disjoint_sets_check_cycle.py](coding_test_with_python/graph/disjoint_sets_check_cycle.py) 
 - 시간복잡도: O(V+M(1+log2-M/vV))
 
 
@@ -204,7 +204,7 @@ Cycle 검사방법:
     1. 만약 사이클이 발생하지 않는다면 최소 신장 트리에 포함시킨다. 
     1. 사이클이 발생할 경우, 최소 신장 트리에 포함시키지 않는다. 
 1. 모든 절차에 대해 2번 과정을 포함시킨다.
--  Code : [kruskal_algorithm.py](graph/kruskal_algorithm.py) 
+-  Code : [kruskal_algorithm.py](coding_test_with_python/graph/kruskal_algorithm.py) 
 - 시간: O(ElogE): E는 E개의 데이터를 상징
 
 
@@ -220,6 +220,6 @@ Cycle 검사방법:
         1. 새롭게 진입차수가 0이 된 노드를 큐에 넣는다. 
 
 ### Graph Exercise
-1. [ex1_make_team.py](graph/ex1_make_team.py) 
-1. [ex2_city_division.py](graph/ex2_city_division.py) 
-1. [ex3_curriculm.py](graph/ex3_curriculm.py) 
+1. [ex1_make_team.py](coding_test_with_python/graph/ex1_make_team.py) 
+1. [ex2_city_division.py](coding_test_with_python/graph/ex2_city_division.py) 
+1. [ex3_curriculm.py](coding_test_with_python/graph/ex3_curriculm.py) 
