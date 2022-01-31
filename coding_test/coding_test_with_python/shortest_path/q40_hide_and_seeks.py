@@ -60,7 +60,6 @@ def main():
     # Assume that n is node, m is edge.
     n, m = map(int, input().split())
     
-       
     map_info = [[] for _ in range(n)]
     
     for _ in range(m):
