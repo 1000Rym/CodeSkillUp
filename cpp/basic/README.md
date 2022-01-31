@@ -264,6 +264,28 @@ __Forward Declaration__ referes to the beforehand declaration of the syntax or s
     ```
 - example case: [ex06_forward_declaration.cpp](ex06_forward_declaration.cpp)
 
+## Preprocessors in C++
+Preprocessor programs provide preprocessors directives which tell the compiler to preprocessors the source code __before compiling__.
+- begin with a `#` symbol(include, define, ifndef).
+There are 4 types preprocessor. 
+- Macros : Piece of code in a program which is given some name(`#define`).
+    - No semi-colon is required after the macro definition.
+    - Macros with arguments: We can also define a macro with arguments([ex07_macro_usage.cpp](ex07_macro_usage.cpp))
+- File Inclusion: Using with the statement `#include`
+    - When the included file are __Headerfile or Standard Files__, we use `<>`.
+    - Otherwise, the included files are __User Defined Files__, we use `""`. 
+- Conditional Complation: To help compiler compile some specific part of the program baased on some conditions, we can use `ifdef`, `endif` and `ifndef`.
+- Other Directives.
+    - `#undefine` Directive: To undefine an exsiting macro.
+    - `#progma` Directive: Used to turn on or off some features.
+        - `#progma startup`: Run before the control passes to `main()`. 
+        - `#progma exit` : Run just before the program exit(just before the control returns from main()).
+        - `#progma warn -rvl`: Hides those warning raised when a function which is supposed to return __a value does not returns a value__.
+        - `#progma warn -par`:Hides those warning raised when a function __does not uses the parameters passed to it__.
+        - `#progma warn -rch`: Hides those warning raised when a code is unreachable(Unreachable code writtern after then `return` statement in a function.). 
+    
+
+
 ## Errors in C++
 We may find several error types in the C++ as follows:
 - __Syntax Error__ : Violatees the rules of writing C/C++ syntax known as C/C++.
@@ -271,6 +293,9 @@ We may find several error types in the C++ as follows:
 - __Linker Error__: Link different object files with the main compiled object.
 - __Logical Error__: On complition and execution of a program, desired output is not obtained when certain input values are given. 
 - __Semantic Error__: The statements written in the progrram are not meaning to the compiler.
+
+
+
 
 
 
