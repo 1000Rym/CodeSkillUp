@@ -284,8 +284,6 @@ There are 4 types preprocessor.
         - `#progma warn -par`:Hides those warning raised when a function __does not uses the parameters passed to it__.
         - `#progma warn -rch`: Hides those warning raised when a code is unreachable(Unreachable code writtern after then `return` statement in a function.). 
     
-
-
 ## Errors in C++
 We may find several error types in the C++ as follows:
 - __Syntax Error__ : Violatees the rules of writing C/C++ syntax known as C/C++.
@@ -294,12 +292,91 @@ We may find several error types in the C++ as follows:
 - __Logical Error__: On complition and execution of a program, desired output is not obtained when certain input values are given. 
 - __Semantic Error__: The statements written in the progrram are not meaning to the compiler.
 
+## Functions in C/C++
+- Why we need functions?
+    - Reducing code reduancy
+    - Make code modular
+    - Provide abstraction(Use library functions wihtou worring about their internal working process).
 
+### Paramter passing to functions
+- __Actual Parameter__: The arguments passed to function.
+- __Formal Paramter__: The parameter received by function.
+- __Pass by Value__: Value of the actual parameter are copied to the formal parameter.  They are store in different memory locations.
+- __Pass by Reference__: Both actual and formal parameters refer to the same locations([ex08_params_pass_by_reference.cpp](ex08_params_pass_by_reference.cpp)).
 
+### Main Function
+Every C++ program contain a function named `main`, which is serve as the entry point of the program.
+- Main function without parameters
+    ```cpp
+    int main(){
+        //...
+        return 0;
+    }
+    ```
+- Main function with paramters
+    ```cpp
+    // Argument count, and arguments variable.
+    int main(int arc, char * const argv[]){
+        //...
+        return 0;
+    }
+    ```
 
+## Arrays in C/C++
+Array in programming language is a collection of similar data items stored at contiguous memory locations, and randomly accessed by using indices of the array.
+- Declaration of the Array
+    ```cpp
+    // Array delcaration by specifying its size.
+    int arr[10]; 
 
+    // Array declaration by initilizing elements.
+    int arr[] = {10, 20, 30, 40}
 
+    // Array declaration by specifiying its size and initilizing elements.
+    // The rest value will be initilized as 0.
+    int arr[10] = {10, 20, 30, 40}
 
+    // Way to access Second elements the array
+    // Way 1: 
+    arr[1]
+    // way 2: 
+    1[arr] 
+    ```
+- Pros and Cons
+    - Pros
+        - Easy access to all the elemets.
+    - Cons
+        - Fixed number of the elements to be entered.
+        - Insertion and deletion of elements can be constly.
 
-
+### Container Library Array
+To overcome the following fundamental problems in built-in C arrays, container `array` or `vector` are supported.
+- C array dosen't know its own size.
+    - Built-in Array
+        ```cpp
+            void function(int a[], int size){
+                for (int i =0; i<s ; i++){
+                    a[i] = i;
+                }
+            }
+            //...
+            // To call function we have to pass the size of the array.
+            function(arr, 20);
+        ``` 
+    - The container `vector`.
+        ```cpp
+        #include <vector> 
+        void function(vector<int>& v){
+            for (int i=0; i< v.size(); i++){
+                v[i] = i;
+            }
+        }
+        
+        // Do int type casting and making an size 20 array.
+        array<int, 20> arr; 
+        function(arr)
+        ```
+- The name of a C array converts to a pointer to its first element at the sligtest provocation. On the contrary, we may use `front()` and `back()` to access both of the first and last elements.
+- We can also use some strong features which does container supports such as `memcpy()`
+- Note: Unlike the built-in or container `array` by using __`vector`__ we can change the container size dynamically.
 
