@@ -380,3 +380,74 @@ To overcome the following fundamental problems in built-in C arrays, container `
 - We can also use some strong features which does container supports such as `memcpy()`
 - Note: Unlike the built-in or container `array` by using __`vector`__ we can change the container size dynamically.
 
+## C++ string class
+- C++ string class internally uses char array to store character but all memory management, allocation, and null terminations is handled by string class itself.
+- The lenght of the C++ string can be changed at runtime becuase of a container class.
+### C++ string class constructor
+We can construct `string` object by the following ways([ex10_str_constructor.cpp](ex10_str_constructor.cpp)_:
+- empty string constructor: `string()`
+- copy constructor: `string (const string& str)`
+- substring constun: `string (const string& str, size_t pos, size_t len = npos)`
+- from c-string: `string(const char* s)`
+- fill: `string (size_t n, char c)`
+- range: `string  (InputIterator first, InputIterator last)`
+
+## string class function in C++
+As string class is a container class we can use the following functions that the container supports([ex11_str_functions.cpp](ex11_str_functions.cpp)):
+- `=`: assignment operator
+- `clear()` : delete all characters from string
+- `length()` or `size()` : length of the string
+- `at(index)` or `[index]`: get a particular character located at index
+- `front()` and `back()`: return the first and last character of the string
+- `find(str_pattern)`: find and returns index where pattern is found.
+- `substr(from, [len])`: get the substring from the speicified index area.
+- `erase(from, [len])`: erase the specific characters.
+- `replace(from, to, chars)`: replace chars `from` to `to` index.
+
+## Pointers in C and C++
+Pointers store __address of variables or memory location__.
+- To access address of a variable to a pointer, we use the __`&`__.
+- We use __`*`__ To declare a pointer variable, or to access the value stored in the address which is called dereferencing. 
+- Example Code: [ex12_pointers.cpp](ex12_pointers.cpp)
+
+## References in C++
+A variable can be declared as a reference by putting __`&`__ in the declaration[ex13_references.cpp](ex13_references.cpp).
+```cpp
+int x = 10; 
+int& ref  = x; 
+```
+
+### C++ References Applications
+We can use reference is good for the following benifits[ex13_references.cpp](ex13_references.cpp):
+1. Modify the passed parameters in a function.
+1. Avoiding a copy of the large structures.
+1. In __For Each Loops__ to modify all objects.
+1. For each Loop to avoid the __copy of objects__. 
+
+### Reference VS Pointers
+Both reference and pointers are used to change local variables of the one function iside of the other functions.
+- Difference Between two of them
+    -  A Pointer can be declared as void but a reference can never be void. 
+    ```cpp
+    int var = 10; 
+    void*  var_ptr =  &var;
+    void&  var_ref = a; // This syntax is invalid 
+    ```
+
+    - The pointer variables can has n-level/multiple levels indirection which reference can't.
+    - A reference can not be reasigned.
+- Reference are less powerful than pointers.
+    1. Once a reference is created, it cannot be later made to reference another object.
+    1. Reference cannot be a `NULL`(which also means must be initilized), But pointers can get a `NULL` value to indicate that the pointer dosen't pointing anything.
+- References are safer and easier to use
+    - Safer: Since references must be initilized, wild references can not be exist.
+    - Easier to use: Reference dosen't need to dereferecing operator to access value.
+        - Note that by using __pointer__ we access the member variables by using __`->`__.
+        - But we use __`.`__ operator in __reference__.
+
+    - Therefore, using reference is more prefered in the places like the copy constructor argument.
+
+# Reference
+- GeeksforGeeks: [C++ Programming Language](https://www.geeksforgeeks.org/c-plus-plus/?ref=shm)
+
+
