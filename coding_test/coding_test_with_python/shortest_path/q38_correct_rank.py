@@ -1,5 +1,23 @@
 """
-정확한 순위
+정확한 순위 Page 387
+[Input Data Description]
+1st: Number of students, times of comparison.
+2-n: comparison result.
+[Output Data Description]
+Number of students whose rank can be estimated.
+
+[Input Data]
+6 6
+1 5
+3 4
+4 2
+4 6
+5 2
+5 4
+
+[Output Data]
+1
+
 """
 def solution(scores):
     for k in range(len(scores)):
@@ -11,14 +29,14 @@ def solution(scores):
 
 def main():
     n, c = map(int, input().split())
-    scores = [[0]*n for _ in range(n)]
+    scores = [[False]*n for _ in range(n)]
     
     for i in range(n):
-        scores[i][i] = 1
+        scores[i][i] = True
         
     for _ in range(c):
         i, j = map(int, input().split())
-        scores[i-1][j-1] = 1
+        scores[i-1][j-1] = True
         
     for line in solution(scores):
         print(line)

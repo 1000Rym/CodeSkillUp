@@ -49,11 +49,12 @@ def solution(map_info, n):
                 heapq.heappush(q,(new_rank, node))
                 
     
+
     max_dist = max([node for node in distance_info if node != INF])
-    target_node = distance_info.index(max_dist)
+    target_node = distance_info.index(max_dist) + 1
     max_count = distance_info.count(max_dist)
     
-    return max_dist, target_node, max_count, distance_info
+    return f"{target_node} {max_dist} {max_count}" 
     
 
 def main():
@@ -65,6 +66,7 @@ def main():
     for _ in range(m):
         start, end = map(int, input().split())
         map_info[start-1].append(end-1)
+        map_info[end-1].append(start-1)
         
     print(solution(map_info, n))            
 
