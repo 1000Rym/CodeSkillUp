@@ -1,11 +1,11 @@
 # Advanced C++
 In this page, we are going to add some advanced C++ skills. 
 - Obejct Oriented Programming in C++
+- Standard Template Library(STL)
+- Non-STL Datastructures
 - Generic Programming
 - Generic Algorithm
 - Associative Containers
-- Non-STL Datastructures
-- STL Datastructures
 - Exception Handling
 
 ## Obejct Oriented Programming in C++
@@ -35,4 +35,52 @@ The main aim of OOP is to bind together the data and the functions that operate 
     - Example: Manager who like sports.
         - UML: ![inheritance](inheritance/inheritance.png)
         - Example Code: [about_inheritance.cpp](inheritance/about_inheritance.cpp)
+
+## The C++ Standard Template Lbirary(STL)
+The standard Template Library(STL) is a set of C++ template classes to provide common programming data structures and functions as lists, stacks, arrays, etc. The STL have the following components: 
+ - Containers
+ - Algorithms
+ - Functions
+ - Iterators
     
+
+### STL Containers in C++
+Containers store objects and data. We can seperate the containers as the follows:
+- Sequence Containers: access data in a sequential manner.
+    - vector
+    - list
+    - deque
+    - array
+    - forward_list
+- Container Adaptors: provide a different interface(for sequential containers).
+    - queue
+    - priority_queue
+    - stack
+- Associative Contaiers: implement sorted data structures that can be quickly searched(Big O(logn) complexity).
+    - set
+    - multiset
+    - map
+    - multimap
+- Unordered Associative Containers: implement unordered data structures that can be quickly searched.
+    - unordered set
+    - unordered multiset
+    - unordered map
+    - unordered multimap
+
+### STL Algorithms in C++
+STL algorithms contain the following features. 
+- Sorting
+- Searching
+- Others
+- Array Algorithms
+- Partition Operations
+- Numeric: valrray
+
+### Functions
+- Functors
+
+### Iterators
+- Iterators
+
+### Utility
+- Pair
