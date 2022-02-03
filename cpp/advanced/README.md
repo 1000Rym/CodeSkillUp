@@ -23,11 +23,16 @@ The main aim of OOP is to bind together the data and the functions that operate 
     - How to overload: 
         - __Oprator Overloading__: The process of making an operator to exhibit different behaviours in different instances.
         - __Function Overloading__: Using a single function to perform different types of tasks.
-    - Examples: Employees and Manager
+    - Example: Employees and Manager
         - UML : ![polymorphism_case1](polymorphism/emp_manager.png) 
-        - Example Code: [gross_employee.cpp](polymorphism/gross_employee.cpp)
+        - Example Code: [gross_employee.cpp](polymorphism/about_polymorphism.cpp)
 
 
 - __Inheritance__: The capability of a class to derive properties and characteristics. 
     - __Sub Class(Derived Class)__: The class that inherits properties from another class.
     - __Super Class(Base Class)__: The class whose properties are inherited by sub class.
+    - In C++, One sub classes might inheritaed from multiple superclasses.
+    - Example: Manager who like sports.
+        - UML: ![inheritance](inheritance/inheritance.png)
+        - Example Code: [about_inheritance.cpp](inheritance/about_inheritance.cpp)
+    
