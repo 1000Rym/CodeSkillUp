@@ -45,6 +45,7 @@ In practical python, we are going to introduce some module, packages and knowled
 - [venv: Make Virtual Environment](PracticalPython/venv/README.md)
 - [Python Debugging](PracticalPython/debugging/README.md)
 - [Socket Programming](PracticalPython/socket_programming/README.md)
+- [Multithreading](PracticalPython/multithreading/README.md)
 - Modules
     - [Click: Python CLI(Command Line Interce)](PracticalPython/click/README.md)
 - Newly Introduced Python Featrues: 
