@@ -46,6 +46,7 @@ In practical python, we are going to introduce some module, packages and knowled
 - [Python Debugging](PracticalPython/debugging/README.md)
 - [Socket Programming](PracticalPython/socket_programming/README.md)
 - [Multithreading](PracticalPython/multithreading/README.md)
+- [How to handle JSON in python?](PracticalPython/how_to_handle_json/README.md)
 - Modules
     - [Click: Python CLI(Command Line Interce)](PracticalPython/click/README.md)
 - Newly Introduced Python Featrues: 
