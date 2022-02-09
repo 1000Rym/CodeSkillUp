@@ -49,5 +49,6 @@ In practical python, we are going to introduce some module, packages and knowled
 - [How to handle JSON in python?](PracticalPython/how_to_handle_json/README.md)
 - Modules
     - [Click: Python CLI(Command Line Interce)](PracticalPython/click/README.md)
+    - [Fancy Progressbar in python(TQDM)](PracticalPython/progress_bar/README.md)
 - Newly Introduced Python Featrues: 
     - [Walrus Operator Introduced in Python 3.9](PracticalPython/walrus_operator/README.md) 
