@@ -25,9 +25,13 @@ Executing multiple threads simultaneously in a single process. Following modules
     - [_thread](https://docs.python.org/ko/3/library/_thread.html): low-level primitives for working with multiple threads.
     - [threading](https://docs.python.org/ko/3/library/threading.html): higher-level interfaces on top of `_thread`. 
 - Multi-Thread server side code: [tcp_server_multi.py](tcp_server_multi.py)
-- Multi-Thread client side code: [tcp_client_multi.py](tcp_client_multi.py)
+- Multi-Thread client side code: [tcp_client_msg.py](tcp_client_msg.py)
 
-
+## Other Tip
+- How to release the port that have been used.
+    ```shell
+    $ lsof -i -n | grep port_number
+    ```
 
 ## Reference
 - [Real Python: Socket Programming in Python](https://realpython.com/python-sockets/)

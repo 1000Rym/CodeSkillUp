@@ -1,8 +1,8 @@
-## Python Testing
+# How to test in Python?
 Automated testing is the execution of your __test plan__ by script instead of human.
-- Test Plan: The parts of yhour application you want to test, __the order__ in which you want to test them, and the __expected response__.
+- Test Plan: The parts of your application you want to test, __the order__ in which you want to test them, and the __expected response__.
 
-- Basic Concept of testing: 
+- Basic Concept of Testing: 
     - Integeration testing : test steps + test assertions.
         - Checks components in your application operate with each other.
     - Unit Test: A smaller test, one that checks that a single compenent operates in the right way. A unit test helps you to isolate what is broken in your application and fix it faster.
@@ -13,23 +13,23 @@ Automated testing is the execution of your __test plan__ by script instead of hu
     assert sum([1,2,3]) = 6, "Should be 6" 
     ```
 
-- Normal example without test runner: [without_test_runner.py](without_test_runner.py)
+- Normal example without test runner: [test_without_test_runner.py](test_without_test_runner.py)
 
-### Choosing a test runner
+## Choosing a test runner
 - unitest (The one built in to python standard library)
 - nose or nose2
 - pytest
 
-#### unittset
+### unittset
 - Has been built into the python standard library since the version 2.1.
 - Contains testing framwork and test runner.
 - Requires the following:
     - Put your tests in to the classes as methos
     - Use Assertion methods in the unitest.TestCase class.
-- Exmaple Code: [with_unittest.py](with_unittest.py)
+- Exmaple Code: [test_with_unittest.py](test_with_unittest.py)
     - Be careful when calling in Python2.7 below.(It will call different versioncalling `unittest2`)
 
-#### nose
+### nose
 Nose is compatible with any tests wrriten using the unittest framework and used as drop-in replacement for the unitest test runner(Recommended use node2)
 - Test files name should start with prefix `test_`.
     ```shell
@@ -105,7 +105,7 @@ Same with nose pytest also supports execution of unittest testcases.Runs series 
     ============================ 2 failed, 2 passed in 0.19s =============================
     ```
 
-### Simple Test Project
+## How to construct the project needs to be tested?
 How to Structure a Simple Test? 
 
 - Consideration before decisions:
@@ -122,7 +122,7 @@ How to Structure a Simple Test?
             - [`__init__.py`](__init__.py)
         - [test.py](test_sum.py)
 
-#### Executing
+### Executing
 ```shell
 # Test with unit test
 $ python3 -m unittest test
@@ -132,7 +132,7 @@ $ python3 -m unittest discover -s tests # Tag name of the directory.
 $ python3 -m unittest discorver -s tests -t src # Tag sub directory. 
 ```
 
-### Supported Assertions
+## Supported Assertions
 - `.assertEqaul(a,b)` : a==b
 - `.assertTrue(x)`, `.assertFalse(x)` : bool(x) is True, False
 - `.assertIs(a, b)`,`.assertIsNot(a, b)`: a is b, a is not b
@@ -140,7 +140,7 @@ $ python3 -m unittest discorver -s tests -t src # Tag sub directory.
 - `.assertIn(a,b), .assertNotIn(a, b)`: a in b, a is not in b
 - `.assertInstance(a, b)`, `.assertNotIsInstance(a,b)`: isinstance(a,b), not isinstance(a,b)
 
-### Integrating Tests
+## Integrating Tests
 Integration testing is the testing of multiple components of application to check that they work together.
 Example of Construct Data-Driven Applications: 
 - Project/
@@ -165,9 +165,9 @@ class TestBasic(unittest.TestCase):
 
 ```
 
-### Futher Things to Know
+## Futher Things to Know
 
-#### Test in Multiple Environment
+### Test in Multiple Environment
 Use __tox__ to test in multiple environment.
 - How to Setup
     ```shell
@@ -176,7 +176,7 @@ Use __tox__ to test in multiple environment.
     ```
 - Will be updated later. 
 
-#### Test Automatically
+### Test Automatically
 Travis CI is one of CI available CI(Continuous Integration) tools.
 ```YAML
 # script under the .travis.yml
@@ -189,14 +189,14 @@ install :
     - python -m unittest.discover
 ```
 
-#### Testing for Performance Degradation Between Changes
+### Testing for Performance Degradation Between Changes
 Tools: pytest-benchmark
 ```python
 def test_my_function():
     result =benchmark(test)
 ```
 
-#### Testing for Security in your Application
+### Testing for Security in your Application
 Tools: bandit
 ```shell
 $ pip install bandit
@@ -204,7 +204,7 @@ $ bandit -r my_sum
 ```
 
 
-### Reference
+## Reference
 - Python Testing : https://realpython.com/python-testing/
 - unittest: https://docs.python.org/3/library/unittest.html
 - nose2(Nose): https://docs.nose2.io
