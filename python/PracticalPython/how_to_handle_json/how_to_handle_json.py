@@ -23,7 +23,7 @@ def main():
             print('{}: {}'.format(key, value), end=" ")
         print()
         
-    # json.dump()
+    # json.dump(): covert dict to json
     dict_values = {(1, 2, 3):'Hello', 2:'to',
                     3:'the', 4:'world',
                     5:'you', 6:float('nan')}
