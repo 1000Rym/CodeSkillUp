@@ -42,12 +42,11 @@ The standard Template Library(STL) is a set of C++ template classes to provide c
  - Algorithms
  - Functions
  - Iterators
-    
 
 ### STL Containers in C++
 Containers store objects and data. We can seperate the containers as the follows:
 - Sequence Containers: access data in a sequential manner.
-    - vector
+    - [vector](stl/containers/vector/README.md)
     - list
     - deque
     - array
@@ -83,4 +82,4 @@ STL algorithms contain the following features.
 - Iterators
 
 ### Utility
-- Pair
+- [Pair](stl/containers/pair/README.md)
