@@ -8,8 +8,8 @@
                 "-g",
                 "${file}",
                 "-o",
-                "--std",
-                "c++17",
+                "-std=c++17",
+				"-stdlib=libc++",
                 "${fileDirname}/${fileBasenameNoExtension}"
             ],
             "options": {

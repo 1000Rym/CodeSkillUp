@@ -47,7 +47,7 @@ The standard Template Library(STL) is a set of C++ template classes to provide c
 Containers store objects and data. We can seperate the containers as the follows:
 - Sequence Containers: access data in a sequential manner.
     - [vector](stl/containers/vector/README.md)
-    - list
+    - [list](stl/containers/list/README.md)
     - deque
     - array
     - forward_list
