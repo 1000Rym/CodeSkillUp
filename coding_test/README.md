@@ -328,4 +328,4 @@ REST(__Re__ presentational __s__ tate __t__ ransfer) 아키텍처를 따르는 A
     ```
 
 ## Reference : 
-[책: 이것이 취업을 위한 코딩 테스트이다](http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&barcode=9791162243077) 
+[참고도서: 이것이 취업을 위한 코딩 테스트이다](http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&barcode=9791162243077) 
