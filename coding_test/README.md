@@ -223,3 +223,109 @@ Cycle 검사방법:
 1. [ex1_make_team.py](coding_test_with_python/graph/ex1_make_team.py) 
 1. [ex2_city_division.py](coding_test_with_python/graph/ex2_city_division.py) 
 1. [ex3_curriculm.py](coding_test_with_python/graph/ex3_curriculm.py) 
+
+## 코딩 테스트를 위한 파이썬 주요 라이브러리
+- 내장 함수: 코딩테스트에서 자주 사용하는 내장 함수는 `min`, `max`, `eval`, `sorted` 등이 있다. 
+    - sorted의 key 접근 활용 사례
+        ```python
+        my_dict = {'john':35, 'may':24, 'kay':23}
+        # 내림차순으로 정렬
+        result = sorted(my_dict.items(), key=lambda x: x[1], reverse = True)
+        ```
+- itertools: 반복되는 데이터를 처리하는 기능을 포함하고 있는 라이버리이다. 코딩테스트에는 주로 `permutations`, `combinations`이 사용된다. 
+    - `permutations(data, 3)` :data 세개의 원소들로 구성할 수 있는 모든 경우 (순열)을 계산 함.
+    - `product(data, repeat=3)`: data에서 중복을 허용하는 세개의 원소를 뽑는 순열을 계산 함.
+    - `combinations(data,3)`: data 세개의 원소들로 이루어진 순서를 고려하지 않은 모든 조합. 
+    - `combinations_with_replacement(data, 3)`: data에서 중복을 허용하면서 순서에 상관없는 경우의 조합.
+        ```python
+        from itertools import permutations
+        from itertools import product
+        from itertools import combinations
+        from itertools import combinations_with_replacement
+
+        data = [1,2,3]
+        
+        # permutations
+        print(list(permutations(data,2)))
+        # result: [(1, 2), (1, 3), (2, 1), (2, 3), (3, 1), (3, 2)]
+
+        # product
+        print(list(product(data, repeat = 2)))
+        # result: [(1, 1), (1, 2), (1, 3), (2, 1), (2, 2), (2, 3), (3, 1), (3, 2), (3, 3)]
+
+        # combinations
+        print(list(combinations(data, 2)))
+        # result: [(1, 2), (1, 3), (2, 3)]
+
+        # combinations_with_replacement
+        print(list(combinations_with_replacement(data,2)))
+        # result: [(1, 1), (1, 2), (1, 3), (2, 2), (2, 3), (3, 3)]
+        ```
+- heapq: 다익스트라 최단 경로 알고리즘과 같은 다양한 알고리즘의 Priority Queue 기능을 구현하고자 할 때 사용된다.
+    - 데이터 추가 삭제시 O(NlogN)의 시간으로 오름차순이 완성된다. 
+    - 파이썬에서 최대힙을 제공하지 않기에, 내림차순 힙 정렬을 구하려면 `-` 값을 대입하는 방식으로 처리할 수 있다. `(heaq.heappush(h, -value))`
+- bisect: 이진 탐색을 쉽게 구현하기 위해 사용 됨.
+    - 정렬된 배열에서 특정된 원소를 찾아야 할 때 효과적.
+        - `bisect_left(a,x)`, `bisect_right(a,x)`: 정렬된 순서를 유지하면서 리스트 a의 왼쪽, 오른쪽에 데이터 x를 삽입할 왼쪽 인덱스를 찾는 메서드
+    - 정렬된 배열에서 특정 범위에 속하는 값의 개수를 구할때 효과적
+        ```python
+        from bisect import bisect_left, bisect_right
+        
+        data = [12,33,44,55,66,77,88,99,100]
+        
+        # print value between 50 to 80
+        right_index = bisect_right(data, 50)
+        left_index = bisect_left(data, 80)
+
+        print(data[right_index: left_index])
+        # result: [55, 66, 77]
+        ```
+- collections: 유용한 자료구조를 제공하는 표준라이브러리. 코딩테스트에서는 `deque`과 `Counter`를 주로 사용한다. 
+    - deque: `appendleft`, `append`, `popleft`, `pop` 연산 시간복잡도는 모두 O(1)이다.
+    - Counter: 등장 횟수를 세는 기능을 제공
+        ```python
+        from collections import Counter
+        data = [1,1,1,2,2,2,3,3,3,4,4,4,5,5,5,5]
+        counter = Counter(data)
+        print(counter)
+        # result: Counter({5: 4, 1: 3, 2: 3, 3: 3, 4: 3})
+        ```
+- math: 수학적인 기능을 제공하는 라이브러리이다. 
+    - 팩토리얼(`math.factorial(n)`), 제곱근(`math.sqrt(n)`), 최대공약수(greatest common divisor:`math.gcd(n1,n2)`), 최대공배수(largest common multiple: `math.lcm(n1,n2)`, 파이(`math.pi`), 자연상수 e(`math.e`))등을 제공한다.
+
+## 개발형 코딩 테스트에 필요한 지식
+### 파이썬으로 웹 요청하기
+requests 라이브러리를 필요로 한다. 
+- GET: 데이터 조회 요청
+- POST: 데이터 생성 요청
+- PUT: 데이터 수정 요청
+- DELELTE: 데이터 삭제 요청. 
+```python
+import requests
+response = requests.get(url="http://google.com")
+print(response.content)
+# 응답 내용을 출력
+```
+### REST API
+REST(__Re__ presentational __s__ tate __t__ ransfer) 아키텍처를 따르는 API를 의미
+- __resource__:  자원, URL 을 이용하여 표현
+- __verb__: 행위, HTTP 메서드를 이용하여 표현
+- __representations__: 표현 
+
+#### 실습
+- JSON Placeholder 
+    - https://jsonplaceholder.typicode.com/
+- JSON Placeholder의 데이터 처리
+    ```python
+    import requests
+    target = "https://jsonplaceholder.typicode.com/users"
+    response = requests.get(url=target)
+    data = response.json()
+
+    # print the user name.
+    for user in data:
+        pint(f"name:{user['name']}")
+    ```
+
+## Reference : 
+[책: 이것이 취업을 위한 코딩 테스트이다](http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&barcode=9791162243077) 
