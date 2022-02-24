@@ -85,15 +85,11 @@ def solution(apples, directions, map_size):
     snake = deque()
     current = (0,0)
     snake.append((current))
-    directs = list(range(4))
     curr_direct = 0
     
     time, direct_info = directions.popleft()
     
-    
-    
-    while True:
-        
+    while True:      
         new_pos = get_new_step(current, curr_direct)
         total_time +=1
         
@@ -109,19 +105,16 @@ def solution(apples, directions, map_size):
             else:
                 snake.popleft()
         else:
-            return total_time
+            break
         
         if total_time == time: 
             curr_direct = change_direct(curr_direct, direct_info)
             if directions: 
                 time, direct_info = directions.popleft()
-            
-        
-        
-        
-    return total_time
     
-   
+    return total_time
+            
+    
 
 def main():
     N = int(input())

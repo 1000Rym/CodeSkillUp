@@ -62,7 +62,7 @@ def dijkstra_origin(graph, start_node, distance_info, visited_info):
 def advanced_dijkstra(graph, start_node, distance_info):
     # Advanced dijecstra will use heapq instead of find_shortest_node
     q = []
-    heapq.heappush(q, (start_node, 0))
+    heapq.heappush(q, (0, start_node))
     
     while q: 
         distance, now = heapq.heappop(q)

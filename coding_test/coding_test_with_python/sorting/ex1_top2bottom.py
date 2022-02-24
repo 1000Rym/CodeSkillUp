@@ -30,7 +30,7 @@ def solution(numbers):
     return results
     
 def main():
-    N, numbers = input_values()
+    _, numbers = input_values()
     print(solution(numbers))
 
 if __name__ == '__main__':

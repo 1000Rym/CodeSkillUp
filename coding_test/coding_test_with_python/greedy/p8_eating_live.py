@@ -1,14 +1,17 @@
 """
 무지의 먹방 라이브
+[I/O Description]
+1. Amounts of the each food.
+2. time
+result: which food does eater eat after specific time
 
 [Input]
 3 1 2
 5
 
-result
+[output]
 1
 """
-
 
 def solution(food_times, time):
     result = 0

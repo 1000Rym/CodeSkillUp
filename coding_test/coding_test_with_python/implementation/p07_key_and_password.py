@@ -47,8 +47,8 @@ def solution(key, lock):
                     return True
                 else :
                     for x in range(len(key)):
-                            for y in range(len(key)):
-                                graph[i+x][j+y] -= key[x][y]
+                        for y in range(len(key)):
+                            graph[i+x][j+y] -= key[x][y]
         key = rotate_key(key)
                 
     return False

@@ -1,4 +1,5 @@
 """
+서로소 집합
 공통 원소가 없는 두 집합
 
 input 
@@ -26,24 +27,15 @@ class Node:
     def __init__(self, number):
         self.number = number
         self.parent = self
-        
-    def set_parent(self, parent):
-        self.parent = parent
-        
-    def get_parent(self):
-        return self.parent
     
     def get_root(self):
         return self if self.parent is self else self.parent.get_root()
-    
-    def get_number(self):
-        return self.number
         
     def __repr__(self): 
         return "{}".format(self.number)
     
     def __gt__(self, other):
-        return self. number > other.number
+        return self.number > other.number
     
 
 def main(): 
@@ -55,19 +47,19 @@ def main():
         nodes.append(node)
         
     for _ in range(edge_count):
-        node1 ,node2 = map(int, input().split())
+        node1, node2 = map(int, input().split())
         
         root1 = nodes[node1].get_root()
         root2 = nodes[node2].get_root()
         
         if root1>root2:
-            root1.set_parent(root2)
+            root1.parent = root2
         else: 
-            root2.set_parent(root1)
+            root2.parent = root1
 
     
-    print([node.get_parent() for node in nodes if node.get_number()>0])
-    print([node.get_root() for node in nodes if node.get_number()>0])
+    print([node.get_parent() for node in nodes if node.number>0])
+    print([node.get_root() for node in nodes if node.number>0])
         
             
 if __name__ == '__main__':

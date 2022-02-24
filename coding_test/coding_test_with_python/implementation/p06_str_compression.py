@@ -1,4 +1,8 @@
 """ 문자열 압축 페이지 323
+[input-1]
+aabbaccc
+[output]
+7
 """
 def solution(array):
     max_count = len(array)//2 + 1

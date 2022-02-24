@@ -45,9 +45,9 @@ def main():
         if parent1 == parent2:
             continue
         elif parent1 > parent2:
-            parent1.set_parent(parent2)
+            parent1.parent = parent2
         else:
-            parent2.set_parent(parent1)
+            parent2.parent = parent1
         
         total_cost += cost
     

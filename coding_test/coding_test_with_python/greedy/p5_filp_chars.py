@@ -1,4 +1,5 @@
 """
+문자열 뒤집기
 Get Minimum Flip Count, Make the string same number. page(313)
 - Flip Number 0, 1
 [Input]
@@ -6,12 +7,14 @@ Get Minimum Flip Count, Make the string same number. page(313)
 
 """
 def my_solution(numbers):
+    # Flip number if the current number is not same as the front number
     flip_start = False
     count = 0
     for i in range(1, len(numbers)):
         if numbers[i-1] != numbers[i] : 
             flip_start = not flip_start
-            if flip_start : count +=1
+            # If current flip is new flip add count
+            if flip_start : count +=1 
     
     return count
 

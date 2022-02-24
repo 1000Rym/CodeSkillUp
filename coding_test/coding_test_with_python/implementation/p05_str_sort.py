@@ -1,6 +1,7 @@
 """
 q08 문자열 재정열 page 322
 문자는 오름차순 정열, 문자열 뒤에 숫자들의 합
+
 예제 1: 
 [input]
 k1ka5cb7
@@ -24,9 +25,6 @@ def solution(array):
             result+= char
     
     return result if sum == 0 else result+str(sum)
-
-    
-    
 
 def main():
     array = list(input().upper())

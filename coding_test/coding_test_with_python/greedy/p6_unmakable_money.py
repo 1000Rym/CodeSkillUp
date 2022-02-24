@@ -1,8 +1,16 @@
 """
-Unmakable Money
+만들수 없는 금액
+[I/O Description]
+1st: count of various of coins
+2nd: value of the coins
+result: minimum money that can not be makable.
+
 [Input]
 5
 3 2 1 1 9
+
+[output]
+8
 """
 
 def solution(coins):
@@ -13,13 +21,12 @@ def solution(coins):
         if target < coin: break
         else : 
             target += coin
-            print(target)
     
     return target
         
     
 def main():
-    coin_count = int(input())
+    _ = int(input())
     coins = list(map(int, input().split()))
     print(solution(coins))
 

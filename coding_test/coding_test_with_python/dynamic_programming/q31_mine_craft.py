@@ -8,15 +8,11 @@
 4 4
 1 3 1 5 2 2 4 1 5 0 2 3 0 6 1 2
 """
-
-
 def solution(mines):
     row = len(mines)
-    column = 0 if row <= 0 else len(mines[0])
-    
+    column = 0 if row <= 0 else len(mines[0])    
     craft = [[0]*column for _ in range(row)]
 
-    
     for j in range(column):
         for i in range(row):    
             if j-1 < 0: 
@@ -41,7 +37,6 @@ def solution(mines):
     
     return max([craft[i][j] for i in range(row) for j in range(column)])    
           
-  
 
 def main():
     cases = int(input())
@@ -57,12 +52,8 @@ def main():
        
         results.append(solution(mines))
         
-
-        
     for result in results:
         print(result)
-            
-        
     
 if __name__ == '__main__':
     main()

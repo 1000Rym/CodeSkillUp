@@ -23,9 +23,7 @@ def main():
     n, c = map(int, input().split())
     numbers = []
     for _ in range(n):
-        numbers.append(int(input()))
-    
-    numbers.sort()    
+        numbers.append(int(input())) 
     
     print(solution(numbers, c))
 

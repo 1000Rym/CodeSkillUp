@@ -26,7 +26,7 @@ def input_value():
     """
     rows, columns = map(int, input().split())
     graph = list()
-    for row in range(rows):
+    for _ in range(rows):
         graph.append(list(map(int, input())))
     
     return rows, columns, graph

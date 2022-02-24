@@ -64,7 +64,6 @@ def main():
     for i in range(node_count+1):
         nodes.append(Node(i))
     
-    
     for _ in range(info_count):
         option, node1, node2 = map(int, input().split())
         if option == 0:

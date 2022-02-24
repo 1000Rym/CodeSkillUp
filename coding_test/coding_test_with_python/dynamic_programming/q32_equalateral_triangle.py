@@ -29,7 +29,6 @@ def solution(numbers):
 
     return max(result[len(numbers)-1])
 
-
 def main():
     n = int(input())
     numbers = []
@@ -40,7 +39,5 @@ def main():
 
     print(solution(numbers))
     
-
-
 if __name__ == '__main__':
     main()

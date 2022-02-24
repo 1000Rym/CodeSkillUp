@@ -16,9 +16,6 @@ class Node:
         self.parent = None
         self.number = number
     
-    def set_parent(self, parent):
-        self.parent = parent
-    
     def get_root(self):
         return self.parent.get_root() if self.parent is not None else self
     
@@ -31,8 +28,6 @@ class Node:
     def __repr__(self):
         return "{}".format(self.number)
     
-     
-
 
 def main():
     node_count, edge_count = map(int, input().split())
@@ -44,16 +39,16 @@ def main():
     
     for _ in range(edge_count):
         node1, node2 = map(int, input().split())
-        parent1 = nodes[node1].get_root() 
-        parent2 = nodes[node2].get_root()
+        root1 = nodes[node1].get_root() 
+        root2 = nodes[node2].get_root()
               
-        if parent1 == parent2:
+        if root1 == root2:
             is_cycle = True
             break
-        elif parent1 > parent2:
-            parent1.set_parent(parent2)
+        elif root1 > root2:
+            root1.parent=root2
         else:
-            parent2.set_parent(parent1)
+            root2.parent=root1
     
     if is_cycle: 
         print("Cycle 이 발생했습니다.")

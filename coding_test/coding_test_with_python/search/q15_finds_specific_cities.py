@@ -48,7 +48,7 @@ def solution(graph, x, k):
     while q:
         rank, start = heapq.heappop(q)
         
-        if rank >=  graph[node]: 
+        if rank >=  graph[start]: 
             continue 
         
         for end in graph[start]: 

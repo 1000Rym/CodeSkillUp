@@ -53,9 +53,6 @@ def solution(numbers, number, count):
         
         return last-first +1
     
-    
-    
-    
 
 def main():
     count, number = map(int, input().split())

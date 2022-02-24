@@ -39,7 +39,6 @@ def main():
     count = int(input())
     numbers = list(map(int, input().split()))
     
-    
     print(solution(numbers,0,count))
 
 if __name__ == '__main__':

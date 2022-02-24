@@ -8,7 +8,6 @@ result : 1
 case 2: 
 weak_walls = [1, 5, 6, 10]
 friends_dist = [1, 2, 3, 4]
-
 """
 from itertools import permutations
 
@@ -40,8 +39,6 @@ def solution(n, weak_walls, friends_dist):
         
     return result if len(friends_dist) + 1 else -1
                    
-   
-
 def main():
     n = 12
     weak_walls = [1, 3, 4, 9, 10]

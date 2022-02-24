@@ -1,6 +1,5 @@
 """ 퇴사 Page 377
 """
-
 def solution(info):
     benifits = [0]*len(info)
     

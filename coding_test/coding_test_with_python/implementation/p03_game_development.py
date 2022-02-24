@@ -1,3 +1,10 @@
+"""
+게임 개발 
+[I/O Description]
+1st: map info
+Returns:
+    _type_: _description_
+"""
 # map size m_y, m_x
 ms_y, ms_x = map(int, input().split())
 # player position p_y, p_x, player direction p_d

@@ -1,4 +1,5 @@
 """
+곱하기 혹은 더하기
 Get Maximum Value by using adding or multiply op(page 312)
 
 [Input]
@@ -10,9 +11,7 @@ Get Maximum Value by using adding or multiply op(page 312)
 567
 [Output]
 210
-
 """
-
 def my_solution(numbers):
     result = numbers[0]
     for number in numbers[1:]: 

@@ -1,5 +1,8 @@
 """
-Page 322 Chiken Delivery
+치킨 배달: Page 322 
+1st map_size count of chiken houses
+2nd-last map info(0-street 1-chiken house 2-normal house)
+result: shortest chiken distance
 """
 from itertools import combinations
 INF = int(1e9)
