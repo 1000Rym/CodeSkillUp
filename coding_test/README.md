@@ -54,11 +54,11 @@ Always choosing the most obvious and immediate benifit, generally  we can solve 
     - C/C++: 구현이 어렵지만, 실행시간이 짧은 편이다.
 
 ### Implementation Problems
-1. [상하좌우](coding_test_with_python/implementation/p1_up_down_left_right.py)
-1. [시각](coding_test_with_python/implementation/p2_time.py)
-1. [게임개발](coding_test_with_python/implementation/p3_game_development.py)
-1. [07 럭키스트레이트](coding_test_with_python/implementation/p4_lucky_straight.py)
-1. [08 문자 재정렬](coding_test_with_python/implementation/p5_str_sort.py)
+1. [상하좌우](coding_test_with_python/implementation/p01_up_down_left_right.py)
+1. [시각](coding_test_with_python/implementation/p02_time.py)
+1. [게임개발](coding_test_with_python/implementation/p03_game_development.py)
+1. [07 럭키스트레이트](coding_test_with_python/implementation/p04_lucky_straight.py)
+1. [08 문자 재정렬](coding_test_with_python/implementation/p05_str_sort.py)
 1. [09 문자열 압축](coding_test_with_python/implementation/p06_str_compression.py)
 1. [10 자물쇠와 열쇠](coding_test_with_python/implementation/p07_key_and_password.py)
 1. [11 뱀](coding_test_with_python/implementation/p08_snake.py)
