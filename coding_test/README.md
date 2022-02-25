@@ -20,16 +20,16 @@ Always choosing the most obvious and immediate benifit, generally  we can solve 
 1.  Make the algorithm that choose data from the largest.
 
 ### Greedy Problems
-1. [거스름 돈](/coding_test_with_python/greedy/p1_change.py) 
-1. [큰 수의 법칙](/coding_test_with_python/greedy/p2_principle_of_big_numbers.py)
-1. [숫자카드 게임](/coding_test_with_python/greedy/p9_card_game.py)
-1. [1이 될 때까지](/coding_test_with_python/greedy/)
-1. [01 모험가 길드](/coding_test_with_python/greedy/p3_advanture_guild.py)
-1. [02 곱하기 혹은 더하기](/coding_test_with_python/greedy/p4_add_or_mul.py)
-1. [03 문자열 뒤집기](/coding_test_with_python/greedy/p5_filp_chars.py)
-1. [04 만들 수 없는 금액](/coding_test_with_python/greedy/p6_unmakable_money.py)
-1. [05 볼링공 고르기](/coding_test_with_python/greedy/p7_balling_balls.py)
-1. [06 무지의 먹방 라이브](/coding_test_with_python/greedy/p8_eating_live.py)
+1. [거스름 돈](coding_test_with_python/greedy/p1_change.py) 
+1. [큰 수의 법칙](coding_test_with_python/greedy/p2_principle_of_big_numbers.py)
+1. [숫자카드 게임](coding_test_with_python/greedy/p9_card_game.py)
+1. [1이 될 때까지](coding_test_with_python/greedy/)
+1. [01 모험가 길드](coding_test_with_python/greedy/p3_advanture_guild.py)
+1. [02 곱하기 혹은 더하기](coding_test_with_python/greedy/p4_add_or_mul.py)
+1. [03 문자열 뒤집기](coding_test_with_python/greedy/p5_filp_chars.py)
+1. [04 만들 수 없는 금액](coding_test_with_python/greedy/p6_unmakable_money.py)
+1. [05 볼링공 고르기](coding_test_with_python/greedy/p7_balling_balls.py)
+1. [06 무지의 먹방 라이브](coding_test_with_python/greedy/p8_eating_live.py)
 
 ## Implementation
 - 해결방법:
@@ -54,16 +54,16 @@ Always choosing the most obvious and immediate benifit, generally  we can solve 
     - C/C++: 구현이 어렵지만, 실행시간이 짧은 편이다.
 
 ### Implementation Problems
-1. [상하좌우](/coding_test_with_python/implementation/p1_up_down_left_right.py)
-1. [시각](/coding_test_with_python/implementation/p2_time.py)
-1. [게임개발](/coding_test_with_python/implementation/p3_game_development.py)
-1. [07 럭키스트레이트](/coding_test_with_python/implementation/p4_lucky_straight.py)
-1. [08 문자 재정렬](/coding_test_with_python/implementation/p5_str_sort.py)
-1. [09 문자열 압축](/coding_test_with_python/implementation/p06_str_compression.py)
-1. [10 자물쇠와 열쇠](/coding_test_with_python/implementation/p07_key_and_password.py)
-1. [11 뱀](/coding_test_with_python/implementation/p08_snake.py)
-1. [13 치킨 배달](/coding_test_with_python/implementation/p09_chicken_delivery.py)
-1. [14 외벽 점검](/coding_test_with_python/implementation/p10_wall_check.py)
+1. [상하좌우](coding_test_with_python/implementation/p1_up_down_left_right.py)
+1. [시각](coding_test_with_python/implementation/p2_time.py)
+1. [게임개발](coding_test_with_python/implementation/p3_game_development.py)
+1. [07 럭키스트레이트](coding_test_with_python/implementation/p4_lucky_straight.py)
+1. [08 문자 재정렬](coding_test_with_python/implementation/p5_str_sort.py)
+1. [09 문자열 압축](coding_test_with_python/implementation/p06_str_compression.py)
+1. [10 자물쇠와 열쇠](coding_test_with_python/implementation/p07_key_and_password.py)
+1. [11 뱀](coding_test_with_python/implementation/p08_snake.py)
+1. [13 치킨 배달](coding_test_with_python/implementation/p09_chicken_delivery.py)
+1. [14 외벽 점검](coding_test_with_python/implementation/p10_wall_check.py)
 
 ## Searching Algorithm
 맵의 표현방법
@@ -114,7 +114,7 @@ Always choosing the most obvious and immediate benifit, generally  we can solve 
     1. 탐색 시작 노드를 큐에 삽입하고 방문 처리를 한다. 
     1. 큐에서 노드를 꺼내 해당 노드의 인접 노드 중에서 방문하지 않은 노드를 모두 큐에 삽입하고 방문 처리를 한다. 
     1. 2번 과정을 더 이상 수행할 수 없을 때까지 반복한다. 
-- 예제: [bfs_example.py](/coding_test_with_python/search/bfs_example.py)
+- 예제: [bfs_example.py](coding_test_with_python/search/bfs_example.py)
 
 ### Sequential Search(순차 탐색)
 - 리스트 안에 있는 특정한 데이터를 찾기 위해 앞에서부터 데이터를 하나씩 차례대로 확인하는 방법.
@@ -138,19 +138,19 @@ Always choosing the most obvious and immediate benifit, generally  we can solve 
 ### Search Problems: 
 - [아이스크림 찾기](coding_test_with_python/search/p01_ice_cream_maker.py)
 - [미로 탈출](coding_test_with_python/search/p02_escape_maze.py): BFS 방식으로 deque(queue)를 사용하여 해결.
-- [15 특정 거리의 도시 찾기](/coding_test_with_python/search/q15_finds_specific_cities.py)
-- [16 연구소](/coding_test_with_python/search/q16_lab.py)
-- [17 경쟁적 전염](/coding_test_with_python/search/q17_competitive_transfer.py)
+- [15 특정 거리의 도시 찾기](coding_test_with_python/search/q15_finds_specific_cities.py)
+- [16 연구소](coding_test_with_python/search/q16_lab.py)
+- [17 경쟁적 전염](coding_test_with_python/search/q17_competitive_transfer.py)
 - 18 괄호 변환
-- [19 연산자 끼워넣기](/coding_test_with_python/search/q19_add_op.py)
-- [20 감시피하기](/coding_test_with_python/search/q20_avoid_detaction.py)
-- [21 인구이동](/coding_test_with_python/search/q21_population_movement.py)
-- [22 블록이동하기](/coding_test_with_python/search/q22_move_blocks.py)
+- [19 연산자 끼워넣기](coding_test_with_python/search/q19_add_op.py)
+- [20 감시피하기](coding_test_with_python/search/q20_avoid_detaction.py)
+- [21 인구이동](coding_test_with_python/search/q21_population_movement.py)
+- [22 블록이동하기](coding_test_with_python/search/q22_move_blocks.py)
 - Binary Search
-    - [27 정렬된 배열에서 특정 수의 개수 구하기](/coding_test_with_python/search/q27_find_specific_numbers_count.py)
-    - [28 고정점 찾기](/coding_test_with_python/search/q28_fixed_point.py)
-    - [29 공유기 설치](/coding_test_with_python/search/q29_setup_routers.py) (Need to fix, didn't use the binary search)
-    - [30 가사 검색](/coding_test_with_python/search/q30_search_words.py) (Need to fix, didn't use the binary search)
+    - [27 정렬된 배열에서 특정 수의 개수 구하기](coding_test_with_python/search/q27_find_specific_numbers_count.py)
+    - [28 고정점 찾기](coding_test_with_python/search/q28_fixed_point.py)
+    - [29 공유기 설치](coding_test_with_python/search/q29_setup_routers.py) (Need to fix, didn't use the binary search)
+    - [30 가사 검색](coding_test_with_python/search/q30_search_words.py) (Need to fix, didn't use the binary search)
 
 ## Sorting Algorithm
 - 선택 정렬 Selection Sort
@@ -199,22 +199,22 @@ Always choosing the most obvious and immediate benifit, generally  we can solve 
 1. [위에서 아래로](coding_test_with_python/sorting/ex1_top2bottom.py)
 1. [성적이 낮은 순서로 출력하기](coding_test_with_python/sorting/ex2_exchangearrays.py)
 1. [두 배열의 원소 교체](coding_test_with_python/sorting/ex3_print_from_lowscore.py)
-1. [23 국영서](/coding_test_with_python/sorting/q23_sorting_scores.py)
-1. [24 안테나](/coding_test_with_python/sorting/q24_setup_antenna.py)
-1. [25 실패율](/coding_test_with_python/sorting/q25_fail_ratio.py)
-1. [26 카드정열하기](/coding_test_with_python/sorting/q26_sorting_cards.py)
+1. [23 국영서](coding_test_with_python/sorting/q23_sorting_scores.py)
+1. [24 안테나](coding_test_with_python/sorting/q24_setup_antenna.py)
+1. [25 실패율](coding_test_with_python/sorting/q25_fail_ratio.py)
+1. [26 카드정열하기](coding_test_with_python/sorting/q26_sorting_cards.py)
 
 ## Dynamic Programming (다이너믹 프로그래밍)
 큰 문제를 작게 나누고, 같은 문제라면 한 번씩만 풀어 문제를 효율적으로 해결하는 알고리즘 기법으로, 메모리 공간을 약간 더 사용하여 연산 속도를 비약적으로 증가시키는 방법. 
--  Memoization(메모제이션): 한 번 구한 결과를 공간해 메모해두고 같은 식을 다시 호출할 시 메모한 결과를 그대로 가져오는 방법, Caching(캐싱)이라고도 함([memoization_fibo.py](/coding_test_with_python/dynamic_programming/memoization_fibo.py)).
+-  Memoization(메모제이션): 한 번 구한 결과를 공간해 메모해두고 같은 식을 다시 호출할 시 메모한 결과를 그대로 가져오는 방법, Caching(캐싱)이라고도 함([memoization_fibo.py](coding_test_with_python/dynamic_programming/memoization_fibo.py)).
 - 전형적인 형태는 결과 저장용 리스트인 DP-Table로 보관하는 bottom-up 방식을 사용한다([memoization_fibo.py](coding_test_with_python/dynamic_programming/memoization_fibo.py) 의 `bottom_up(n)`).
 
 ### Dynamic Programming Problems
-1. [31 금광](/coding_test_with_python/dynamic_programming/q31_mine_craft.py)
-1. [32 정수 삼각형](/coding_test_with_python/dynamic_programming/q32_equalateral_triangle.py)
-1. [33 퇴사](/coding_test_with_python/dynamic_programming/q33_resignation.py)
-1. [34 병사 배치하기](/coding_test_with_python/dynamic_programming/q34_arrange_military.py)
-1. [35 못생긴 수](/coding_test_with_python/dynamic_programming/q35_ugly_numbers.py)
+1. [31 금광](coding_test_with_python/dynamic_programming/q31_mine_craft.py)
+1. [32 정수 삼각형](coding_test_with_python/dynamic_programming/q32_equalateral_triangle.py)
+1. [33 퇴사](coding_test_with_python/dynamic_programming/q33_resignation.py)
+1. [34 병사 배치하기](coding_test_with_python/dynamic_programming/q34_arrange_military.py)
+1. [35 못생긴 수](coding_test_with_python/dynamic_programming/q35_ugly_numbers.py)
 
 ## Shortest Path Algorithm
 ### dijkstra(다익스트라) 최단경로 알고리즘
@@ -251,11 +251,11 @@ Always choosing the most obvious and immediate benifit, generally  we can solve 
 
 
 ### Shortest Path Problem
-1. [37 플로이드](/coding_test_with_python/shortest_path/q37_floyd.py)
-1. [38 정확한 순위](/coding_test_with_python/shortest_path/q38_correct_rank.py)
-1. [39 화성 탐사](/coding_test_with_python/shortest_path/q39_mars_exploration.py)
-1. [40 숨바꼭질](/coding_test_with_python/shortest_path/q40_hide_and_seeks.py)
-1. [41 여행 계획](/coding_test_with_python/shortest_path/q41_travelling_plans.py)
+1. [37 플로이드](coding_test_with_python/shortest_path/q37_floyd.py)
+1. [38 정확한 순위](coding_test_with_python/shortest_path/q38_correct_rank.py)
+1. [39 화성 탐사](coding_test_with_python/shortest_path/q39_mars_exploration.py)
+1. [40 숨바꼭질](coding_test_with_python/shortest_path/q40_hide_and_seeks.py)
+1. [41 여행 계획](coding_test_with_python/shortest_path/q41_travelling_plans.py)
 
 ## Graph Algorithm
 ### Disjoint Sets(서로소 집합)
@@ -289,8 +289,8 @@ Cycle 검사방법:
 1. [ex1_make_team.py](coding_test_with_python/graph/ex1_make_team.py) 
 1. [ex2_city_division.py](coding_test_with_python/graph/ex2_city_division.py) 
 1. [ex3_curriculm.py](coding_test_with_python/graph/ex3_curriculm.py)
-1. [42 탑승구](/coding_test_with_python/graph/q42_board_gate.py)
-1. [43 어두운 길](/coding_test_with_python/graph/q43_dark_roads.py)
+1. [42 탑승구](coding_test_with_python/graph/q42_board_gate.py)
+1. [43 어두운 길](coding_test_with_python/graph/q43_dark_roads.py)
 
 ## 코딩 테스트를 위한 파이썬 주요 라이브러리
 - 내장 함수: 코딩테스트에서 자주 사용하는 내장 함수는 `min`, `max`, `eval`, `sorted` 등이 있다. 
