@@ -16,7 +16,7 @@ int main()
 {
     list <int> m_list1, m_list2;
 
-    // Insert elements(1~10) to the list.
+    // insert elements(1~10) to the list.
     for (int i = 1; i <= 10; i++)
     {
         m_list1.emplace_back(i);

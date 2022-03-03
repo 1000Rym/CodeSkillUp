@@ -39,7 +39,6 @@ In C++, we consider __vector__, __list__, __deque__, __array__, __forward_list__
 
 
 ## C++ Sequenctial Container Functions
-__Environment: C++ 11 above__
 
 ### C++ Container's Iterator Functions
 |   Functions           | Supported Containers          |   Description                                                                 |
@@ -101,8 +100,8 @@ __Environment: C++ 11 above__
 - Example Code: [operation_functions.cpp](examples/operation_functions.cpp)
 
 ### C++ Container's Allocator(Observer) Function
-|   Functions       | Supported Containers  |   Description    |
-|   :---:           |   :---:               |   :---           |
+|   Functions       | Supported Containers  |   Description     |
+|   :---:           |   :---:               |   :---            |
 | `get_allocator()` | vector, list, deque   | Get an allocator. |
 
 ### C++ Container's Non-member function overloads
@@ -111,6 +110,7 @@ __Environment: C++ 11 above__
 
 ## Reference:
 - Array
+    - [Array class in C++](https://www.geeksforgeeks.org/array-class-c/)
     - [cplusplus.com: array](https://www.cplusplus.com/reference/array/array/)
 - List 
     - [List in C++ Standard Template Library (STL)](https://www.geeksforgeeks.org/list-cpp-stl/)
