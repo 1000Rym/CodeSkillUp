@@ -45,22 +45,17 @@ The standard Template Library(STL) is a set of C++ template classes to provide c
 
 ### STL Containers in C++
 Containers store objects and data. We can seperate the containers as the follows:
-- Sequence Containers: access data in a sequential manner.
-    - [vector](stl/containers/vector/README.md)
-    - [list](stl/containers/list/README.md)
-    - deque
-    - array
-    - forward_list
+- [Sequence Containers](stl/containers/sequence_containers/README.md): Access data in a sequential manner(__vector, list, deque, array, forward_list)__.
 - Container Adaptors: provide a different interface(for sequential containers).
     - queue
     - priority_queue
     - stack
-- Associative Contaiers: implement sorted data structures that can be quickly searched(Big O(logn) complexity).
+- Associative Containers: Implement sorted data structures that can be quickly searched(Big O(logn) complexity).
     - set
     - multiset
     - map
     - multimap
-- Unordered Associative Containers: implement unordered data structures that can be quickly searched.
+- Unordered Associative Containers: Implement unordered data structures that can be quickly searched.
     - unordered set
     - unordered multiset
     - unordered map
