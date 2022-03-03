@@ -4,37 +4,35 @@
 using namespace std;
 
 int main(){
-    // Instantiate an empty vector.
-    vector<int> m_vector;
     
+    // Push the elements 1~10 to vector.
+    vector<int> m_vector;
     for(int i = 1; i <=10 ; i ++){
-
         // Rather to use emplace_back, since it dosen't create template object memory.
         m_vector.emplace_back(i);
     }
 
-    // begin() : start pointer of the iterator.
+    // 1. begin() / end() : Returns an iterator pointing to the first/last element.
     for(auto itor = m_vector.begin(); itor !=  m_vector.end(); itor ++){ //: last pointer of the iterator.
         
         cout << ++(*itor) << " ";
     }
     cout << endl;
 
-    // begin() : start pointer of the iterator.
+    // 2. cbegin() / cend() : Returns a constant iterator pointing to the first/last element.
     for(auto itor = m_vector.cbegin(); itor !=  m_vector.cend(); itor ++){ //: last pointer of the iterator.
         
         cout << *itor << " ";
     }
     cout << endl;
 
-    //rbegin: reverse iterator ptrs last element.
+    // 3. rbegin(), rend(): Returns an reverse iterator pointing to the last/first element.
     for(auto itor= m_vector.rbegin(); itor != m_vector.rend(); itor ++){
         cout << (*itor)-- << " ";
     }
     cout << endl;
 
-    //crbegin: const reverse iterator, could not change the value iterator pointing at
-    //crend: const reverse iterator ptrs last element.
+    // 4. crbegin(), crend(): Returns a revsered constant iterator poing to the last/first element.
     for(auto itor= m_vector.crbegin(); itor != m_vector.crend(); itor ++){
         cout << *itor << " ";
     }

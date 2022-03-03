@@ -1,0 +1,124 @@
+# Sequence Container in C++ STL
+Sequence containers are the containers taht access data in a sequential manner.
+In C++, we consider __vector__, __list__, __deque__, __array__, __forward_list__ as the the sequential containers. In this page, we are going to summerize these containers.
+
+## Concept
+- __Vector__: Same as the dynamic arrays, vector has the ability to resize itself automatically when an elment is inserted or deleted.
+    - Resize itself automatically.
+    - Elements are placed in __contiguous storage__, 
+    - Can be accessed and traversed using iterators.
+    - New data is inserted at the end.
+        - Remove last element takes only constant time.
+        - Inserting and erasing at the beginng or middle cost linear time.
+- __List__: Allow __non-contiguous__ memory allocation, Slow travelsal, but fas insertion and deletion.
+
+## C++ Sequential Container Constructors
+- Constructor Explanation
+    1. Empty Container Constructor
+        ```cpp
+        deque<int> my_deque;        
+        ```
+    1. Fill Constructor : Constructs a container with n elements(Each element is copy of val).
+        ```cpp
+        // Fill 10 5
+        vector<int> vector_fill(5,10);
+        ```
+    1. Range Construcor: Constructs a container with as many elements as the range [first, last).
+        ```cpp
+        // Range Constructor
+        vector<int> vector_range(vector_fill.begin(), vector_fill.end());
+        ```
+    1. Copy Constructor: Constructs a container with a copy of each of the elements in x, in the same order.
+        ```cpp
+        vector<int> vector_cp(vector_fill);
+        ```
+- Constructor Tables
+    |   Container Type      |  Supported Constructor       |
+    |       :---:           |          :---:               |
+    | list, vector,deque    |  empty fill, range, copy     |
+
+
+## C++ Sequenctial Container Functions
+__Environment: C++ 11 above__
+
+### C++ Container's Iterator Functions
+|   Functions           | Supported Containers          |   Description                                                                 |
+|   :---:               |   :---:                       |   :---                                                                        |
+| `begin()`, `end()`    | array, vector, list, deque    | Return an iterator pointing to the __first/last__ element.                    |
+| `cbegin()`, `cend()`  | array, vector, list, deque    | Return a __constant__ iterator pointing to the __first/last__ element.        |
+| `rbegin()`, `rend()`  | array, vector, list, deque    | Return an __reverse__ iterator pointing to the __last/first__ element.        |
+| `crbegin()`, `crend()`| array, vector, list, deque    | Return a __revsered constant__ iterator poing to the __last/first__ element.  |
+- Example Code: [iterator_functions.cpp](examples/iterator_functions.cpp)
+
+### C++ Container's Capacity Functions
+|   Functions           | Supported Containers         |   Description                                                                                          |
+|   :---:               |   :---:                      |   :---                                                                                                 |
+| `empty()`             | array, vector, list, deque   | Return 1(empty) or 0(not empty)                                                                        |    
+| `size()`              | array, vector, list, deque   | Return the number of elements in the container.                                                        |
+| `max_size()`          | array, vector, list, deque   | Return the number of elements that the container can hold.                                             |
+| `resize()`            | vector, deque                | Resize the containers to hold(n) elements, But not destroy other elements.                             |
+| `capacity()`          | vector, deque                | Return the size of the storage space currently allocated to the container.                             |
+| `reserve()`           | vector, deque                | Request that the container capacity be at least enough to contain n elements.                          |
+| `shrink_to_fit()`     | vector, deque                | Reduce the capacity of the container to fit its size, and destroy all elements beyond the __capacity__.|
+- Example Code: [capacity_functions.cpp](examples/capacity_functions.cpp)
+
+### C++ Container's Elements Access Functions
+|   Functions                       | Supported Containers          |   Definition                                                                                              |
+|   :---:                           |   :---:                       |   :---                                                                                                    |
+| `front()` and `back()`            | array, vector, list, deque    | Return a reference to the __first/last__ element in the container.                                        |
+| Reference Operator: `[n]`,`at(n)` | array, vector, deque          | Return a reference to the element at position n.                                                          |
+| `data()`                          | array, vector                 | Return a direct pointer to the memory array used internally by the container to store its owned elements. |
+- Example Code: [element_access_functions.cpp](examples/element_access_functions.cpp)
+
+### C++ Container's Modifier Functions
+|   Functions       | Supported Containers          |   Description                                                                                 |
+|   :---:           |   :---:                       |   :---                                                                                        |
+| `fill()`          | array                         | Fill the values.                                                                              |
+| `swap()`          | array, vector, list, deque    | Swap to another container of same type .                                                      |
+| `assign()`        | vector, list, deque           | Assign the container content.                                                                 |
+| `push_back()`     | vector, list, deque           | Add the element into a container from back.                                                   |
+| `pop_back()`      | vector, list, deque           | Pop the last element from the container.                                                      |
+| `emplace_back()`  | vector, list, deque           | Insert a new element into the back of the container(Not create temporary object implicitly).  |
+| `emplace()`       | vector, list, deque           | Insert a new element at specific position(Not create temporary object implicitly).            |
+| `insert()`        | vector, list, deque           | Insert new elements before the element at the specified position.                             |
+| `erase()`         | vector, list, deque           | Remove elements from a container from specified poistion or range.                            |
+| `clear()`         | vector, list, deque           | Remove all elements from the container container.                                             |
+| `push_front()`    | list, deque                   | Push the new element to the first position.                                                   |
+| `pop_front()`     | list, deque                   | Remove the first element and reduces size of the container.                                   |
+| `emplace_front()` | list, deque                   | Insert a new element into the front of the container(Not create temporary object implicitly). |
+- Example Code: [modifier_functions.cpp](examples/modifier_functions.cpp)
+
+### C++ Container's Operations Functions
+|   Functions       | Supported Containers  |   Description                                         |
+|   :---:           |   :---:               |   :---                                                |
+| `splice()`        | list                  | Transfer elements from one list to another.           |
+| `remove()`        | list                  | Remove target element(s) if exist.                    |
+| `remove_if()`     | list                  | Remove elements that fit the condition.               |
+| `unique()`        | list                  | Remove duplicate values.                              |
+| `merge()`         | list                  | Merge two _sorted_ lists into one.                    |
+| `sort()`          | list                  | Sort the list(default _incresing order_).             |
+| `reverse()`       | list                  | Reverse the container.                                |
+- Example Code: [operation_functions.cpp](examples/operation_functions.cpp)
+
+### C++ Container's Allocator(Observer) Function
+|   Functions       | Supported Containers  |   Description    |
+|   :---:           |   :---:               |   :---           |
+| `get_allocator()` | vector, list, deque   | Get an allocator. |
+
+### C++ Container's Non-member function overloads
+### C++ Container's Non-member class specializations
+### C++ Container's Template specializations
+
+## Reference:
+- Array
+    - [cplusplus.com: array](https://www.cplusplus.com/reference/array/array/)
+- List 
+    - [List in C++ Standard Template Library (STL)](https://www.geeksforgeeks.org/list-cpp-stl/)
+    - [cplusplus.com: list](https://www.cplusplus.com/reference/list/list/)
+- Vector
+    - [Vector in C++ Standard Template Library (STL)](https://www.geeksforgeeks.org/vector-in-cpp-stl/)
+    - [cplusplus.com: vector](https://www.cplusplus.com/reference/vector/vector/)
+- Deque
+    - [Deque in C++ Standard Template Library (STL)](https://www.geeksforgeeks.org/deque-cpp-stl/)
+    - [cplusplus.com: deque](https://www.cplusplus.com/reference/deque/deque/)
+

@@ -51,3 +51,4 @@ docs/_build/
 
 # Configuratiion Option for the VSCode.
 .vscode/
+*.json
