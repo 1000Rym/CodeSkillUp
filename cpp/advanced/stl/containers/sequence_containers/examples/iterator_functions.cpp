@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <forward_list>
 
 using namespace std;
 
@@ -37,6 +38,15 @@ int main(){
         cout << *itor << " ";
     }
     cout << endl;
-    return 0;
+
+    // 5. before_begin(), cbefore_begin(): Return the (const)iterator to before beginning.
+    forward_list<int> m_forward_list = {1,2,3,4,5};
+    // > 0 1 2 3 4 5 
+    m_forward_list.insert_after(m_forward_list.before_begin(), 0); // Insert the value after the before begin iterator. 
+    for(auto itor = m_forward_list.begin(); itor !=  m_forward_list.end(); itor ++){ 
+        
+        cout << (*itor) ++ << " ";
+    }
+    cout << endl;
 
 }
