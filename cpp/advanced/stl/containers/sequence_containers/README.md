@@ -12,8 +12,8 @@ In C++, we consider __vector__, __list__, __deque__, __array__, __forward_list__
         - Remove last element takes only constant time.
         - Inserting and erasing at the beginng or middle cost linear time.
 - __List__: Allow __non-contiguous__ memory allocation, Slow travelsal, but fas insertion and deletion.
-- __Deque__:
-- __forward_list__:
+- __Deque__: Double ended queue which allows insertion and deleteion in both ends. Unlike vector it might have non-contiguous memory.
+- __forward_list__: Forward lists are implemented as singly-linked list(only point next element). Thus the lists are more efficient in forward iterables.
 
 ## C++ Sequential Container Constructors
 - Constructor Tables
@@ -155,4 +155,7 @@ In C++, we consider __vector__, __list__, __deque__, __array__, __forward_list__
 - Deque
     - [Deque in C++ Standard Template Library (STL)](https://www.geeksforgeeks.org/deque-cpp-stl/)
     - [cplusplus.com: deque](https://www.cplusplus.com/reference/deque/deque/)
+- Forward List 
+    - [Forward List in C++ Standard Template Library (STL)](https://www.geeksforgeeks.org/forward-list-c-set-1-introduction-important-functions/)
+    - [cplusplus.com: forward_list](https://www.cplusplus.com/reference/forward_list/forward_list/)
 

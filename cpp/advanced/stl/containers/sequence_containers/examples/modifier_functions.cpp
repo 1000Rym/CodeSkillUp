@@ -2,6 +2,7 @@
 #include <array>
 #include <vector>
 #include <deque>
+#include <forward_list>
 
 using namespace std;
 
@@ -19,6 +20,7 @@ int main()
     array<int, 5> m_array1, m_array2; 
     vector <int> m_vector1, m_vector2;
     deque<int> m_deque;
+    forward_list<int> m_forward_list = {1,2,3,4,5};
 
     // 1. fill(): Fill the container with specific value.
     // > fill(1) m_array1: 1 1 1 1 1 
@@ -102,7 +104,24 @@ int main()
     print_container_elements("m_deque.pop_front(): ", m_deque);
 
     // 13. emplace_front(): Insert a new element into the front of the container(Not create temporary object implicitly).
-    // > deque.pop_front(3): 3 1 2 
+    // > emplace_front(3): 3 1 2 
     m_deque.emplace_front(3);
-    print_container_elements("m_deque.pop_front(3): ", m_deque);
+    print_container_elements("m_deque.emplace_front: ", m_deque);
+
+    //14. emplace_after : Insert a new element into the front of the container(Not create temporary object implicitly).
+    // >  m_forward_list{1,2,3,4,5} emplace_after(m_forward_list.begin(), 0): 1 0 2 3 4 5 
+    m_forward_list.emplace_after(m_forward_list.begin(), 0);
+    print_container_elements("m_forward_list{1,2,3,4,5} emplace_after(m_forward_list.begin(), 0): ", m_forward_list);
+
+    //15. insert_after : Insert a new element into the front of the container.
+    // >  m_forward_list{1 0 2 3 4 5}  insert_after(m_forward_list.begin(), 0): 1 10 0 2 3 4 5 
+    m_forward_list.insert_after(m_forward_list.begin(), 10);
+    print_container_elements("m_forward_list{1 0 2 3 4 5}  insert_after(m_forward_list.begin(), 0): ", m_forward_list);
+
+    //16. erase_after: Erase the element from the front of the container.
+    // > m_forward_list{1 10 0 2 3 4 5}  erase_after: 1 0 2 3 4 5 
+    m_forward_list.erase_after(m_forward_list.begin());
+    print_container_elements("m_forward_list{1 10 0 2 3 4 5}  erase_after: ", m_forward_list);
+
+    
 }

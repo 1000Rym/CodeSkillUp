@@ -1,5 +1,6 @@
 #include <iostream>
 #include <list>
+#include <forward_list>
 
 using namespace std;
 
@@ -15,6 +16,7 @@ void print_container_elements(string_view description, const T  &container){
 int main()
 {
     list <int> m_list1, m_list2;
+    
 
     // insert elements(1~10) to the list.
     for (int i = 1; i <= 10; i++)
@@ -54,5 +56,12 @@ int main()
     // > m_list2.reverse(): 1 3 5 7 9  
     m_list2.reverse();
     print_container_elements("m_list2.reverse(): ", m_list2);
+
+    forward_list<int> m_forward_list1= {1,2,3,4,5};
+    forward_list<int> m_forward_list2= {6,7,8,9,10};
+    // 7. splice_after(): Transfer elements from one list to another(forward_list splice after another forward_list).
+    // > m_forward_list1: 6 7 8 9 10 1 2 3 4 5 
+    m_forward_list1.splice_after(m_forward_list1.before_begin(), m_forward_list2);
+    print_container_elements("m_forward_list1: ", m_forward_list1);
 
 }
