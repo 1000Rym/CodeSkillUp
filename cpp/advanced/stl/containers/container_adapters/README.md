@@ -7,13 +7,12 @@ Container adapters are made for providing a different interface for sequential c
 - __priority_queue__: Designed that the first element of the queue is the greatest of all elements in the queue and elements are in descending order.
 
 ### C++ Container Adapter Constrcutor
-1. intilization constructor
-1. move-initialization constructor
-1. allocator constructor
-1. initialization with allocator constructor
-1. move-initiailization with allocator constructor
-1. copy with allocator constructor
-1. move with allocator constructor
+- Constructor Tables
+    |   Container Type                      |  Supported Constructor                                                            |
+    |       :---:                           |          :---:                                                                    |
+    | stack, queue, priority_queue          | initialization, range, move-intialization, move-range initialization, allocator   |
+    | stack, queue                          | initilization with allocator, move-initialization with allocator                  |
+
 
 ### C++ Container Adapter - Member Functions
 |   Functions   | Container Type                |  Description                                                                                  | 
@@ -27,13 +26,14 @@ Container adapters are made for providing a different interface for sequential c
 | `top()`       | stack, priority_queue         | Access the top(last) element.                                                                 |
 | `front()`     | queue                         | Access the front most element.                                                                |
 | `back()`      | queue                         | Access the last most element.                                                                 |
-- Example Code: [container_adapter_method_functions.cpp](examples/container_adapter_method_functions.cpp)
+- Example Code: [container_adapter_method_functions.cpp](../example_code/container_adapter_method_functions.cpp)
 
 ### C++ Container Adapter - Non-member function overloads
 |   Functions               | Container Type                |  Description                              | 
 |   :---:                   |   :---                        |  :---                                     |
 | `swap()`                  | stack, queue, priority_queue  | Exchange the same type container.         |
-| __relational operators__  | stack, queue                  | Relational operattors for the container.  | 
+| __relational operators__  | stack, queue                  | Relational operators for the container.  | 
+- Example Code: [non_member_function_overloads.cpp](../example_code/non_member_function_overloads.cpp)
 
 ## Reference
 - Stack

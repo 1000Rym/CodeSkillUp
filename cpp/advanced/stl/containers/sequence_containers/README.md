@@ -63,7 +63,7 @@ In C++, we consider __vector__, __list__, __deque__, __array__, __forward_list__
 | `crbegin()`, `crend()`| array, vector, list, deque    | Return a __revsered constant__ iterator poing to the __last/first__ element.  |
 | `before_begin()`      | forward_list                  | Return the iterator to before beginning.                                      |
 | `cbefore_begin()`     | forward_list                  | Return the constant iterator to before beginning.                             |  
-- Example Code: [iterator_functions.cpp](examples/iterator_functions.cpp)
+- Example Code: [iterator_functions.cpp](../example_code/iterator_functions.cpp)
 
 ### C++ Container's Capacity Functions
 |   Functions           | Supported Containers                      |   Description                                                                                          |
@@ -75,7 +75,7 @@ In C++, we consider __vector__, __list__, __deque__, __array__, __forward_list__
 | `capacity()`          | vector, deque                             | Return the size of the storage space currently allocated to the container.                             |
 | `reserve()`           | vector, deque                             | Request that the container capacity be at least enough to contain n elements.                          |
 | `shrink_to_fit()`     | vector, deque                             | Reduce the capacity of the container to fit its size, and destroy all elements beyond the __capacity__.|
-- Example Code: [capacity_functions.cpp](examples/capacity_functions.cpp)
+- Example Code: [capacity_functions.cpp](../example_code/capacity_functions.cpp)
 
 ### C++ Container's Elements Access Functions
 |   Functions                       | Supported Containers          |   Definition                                                                                              |
@@ -84,7 +84,7 @@ In C++, we consider __vector__, __list__, __deque__, __array__, __forward_list__
 | Reference Operator: `[n]`,`at(n)` | array, vector, deque          | Return a reference to the element at position n.                                                          |
 | `data()`                          | array, vector                 | Return a direct pointer to the memory array used internally by the container to store its owned elements. |
 | `front()`                         | forward_list                  | Access the first elements.                                                                                |
-- Example Code: [element_access_functions.cpp](examples/element_access_functions.cpp)
+- Example Code: [element_access_functions.cpp](../example_code/element_access_functions.cpp)
 
 ### C++ Container's Modifier Functions
 |   Functions       | Supported Containers                      |   Description                                                                                     |
@@ -106,9 +106,9 @@ In C++, we consider __vector__, __list__, __deque__, __array__, __forward_list__
 | `insert_after()`  | forward_list                              | Insert new elements before the element at the specified position.                                 |
 | `erase_after()`   | forward_list                              | Remove elements from a container from specified poistion or range.                                |
 
-- Example Code: [modifier_functions.cpp](examples/modifier_functions.cpp)
+- Example Code: [modifier_functions.cpp](../example_code/sequence_container_modifier_functions.cpp)
 
-### C++ Container's Operations Functions
+### C++ Sequence Container's Operations Functions
 |   Functions       | Supported Containers  |   Description                                 |
 |   :---:           |   :---:               |   :---                                        |
 | `splice()`        | list                  | Transfer elements from one list to another.   |
@@ -119,23 +119,23 @@ In C++, we consider __vector__, __list__, __deque__, __array__, __forward_list__
 | `merge()`         | list, forward_list    | Merge two _sorted_ lists into one.            |
 | `sort()`          | list, forward_list    | Sort the list(default _incresing order_).     |
 | `reverse()`       | list, forward_list    | Reverse the container.                        |
-- Example Code: [operation_functions.cpp](examples/operation_functions.cpp)
+- Example Code: [operation_functions.cpp](../example_code/operation_functions.cpp)
 
-### C++ Container's Allocator(Observer) Function
+### C++ Sequence Container's Allocator(Observer) Function
 |   Functions       | Supported Containers              |   Description     |
 |   :---:           |   :---:                           |   :---            |
 | `get_allocator()` | vector, list, deque, forward_list | Get an allocator. |
-- Example Code: [allocation_function.cpp](examples/allocator_function.cpp)
+- Example Code: [allocation_function.cpp](../example_code/allocator_function.cpp)
 
-### C++ Container's Non-member function overloads
+### C++ Sequence Container's Non-member function overloads
 |   Functions               | Supported Containers                      |   Description                             |
 |   :---:                   |   :---:                                   |   :---                                    |
 | `get<index>(container)`   | array                                     | Get an element from the container.        |
 | __relational operators__  | array, vector, list, deque, forward_list  | Relational Operations for the container.  |  
 | `swap(container)`         | vector, list, deque, forward_list         | Relational Operations for the container.  |
-- Example Code: [non_member_function_overloads.cpp](examples/non_member_function_overloads.cpp)
+- Example Code: [non_member_function_overloads.cpp](../example_code/non_member_function_overloads.cpp)
 
-### C++ Container's Non-member class specializations
+### C++ Sequence Container's Non-member class specializations
 |   Functions               | Supported Containers          |   Description                             |
 |   :---:                   |   :---:                       |   :---                                    |
 | `tuple_element<container>`| array                         | Tuple element type for the container.     |
