@@ -27,7 +27,7 @@ Container adapters are made for providing a different interface for sequential c
 | `top()`       | stack, priority_queue         | Access the top(last) element.                                                                 |
 | `front()`     | queue                         | Access the front most element.                                                                |
 | `back()`      | queue                         | Access the last most element.                                                                 |
-- Example Code: [container_adapter_method_functions](examples/container_adapter_method_functions.cpp)
+- Example Code: [container_adapter_method_functions.cpp](examples/container_adapter_method_functions.cpp)
 
 ### C++ Container Adapter - Non-member function overloads
 |   Functions               | Container Type                |  Description                              | 
