@@ -67,7 +67,8 @@
         "tuple": "cpp",
         "type_traits": "cpp",
         "typeinfo": "cpp",
-        "utility": "cpp"
+        "utility": "cpp",
+        "unordered_set": "cpp"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }

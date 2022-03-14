@@ -26,7 +26,7 @@ The main aim of OOP is to bind together the data and the functions that operate 
     - Example: Employees and Manager
         - UML : ![polymorphism_case1](polymorphism/emp_manager.png) 
         - Example Code: [gross_employee.cpp](polymorphism/about_polymorphism.cpp)
-
+        
 
 - __Inheritance__: The capability of a class to derive properties and characteristics. 
     - __Sub Class(Derived Class)__: The class that inherits properties from another class.

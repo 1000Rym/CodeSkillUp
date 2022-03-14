@@ -69,8 +69,8 @@ In C++, we consider __vector__, __list__, __deque__, __array__, __forward_list__
 |   Functions           | Supported Containers                      |   Description                                                                                          |
 |   :---:               |   :---:                                   |   :---                                                                                                 |
 | `empty()`             | array, vector, list, deque, forward_list  | Return 1(empty) or 0(not empty)                                                                        |
-| `max_size()`          | array, vector, list, deque, forward_list  | Return the number of elements that the container can hold.                                             |    
 | `size()`              | array, vector, list, deque                | Return the number of elements in the container.                                                        |
+| `max_size()`          | array, vector, list, deque, forward_list  | Return the number of elements that the container can hold.                                             |    
 | `resize()`            | vector, deque, forward_list               | Resize the containers to hold(n) elements, But not destroy other elements.                             |
 | `capacity()`          | vector, deque                             | Return the size of the storage space currently allocated to the container.                             |
 | `reserve()`           | vector, deque                             | Request that the container capacity be at least enough to contain n elements.                          |
@@ -125,7 +125,7 @@ In C++, we consider __vector__, __list__, __deque__, __array__, __forward_list__
 |   Functions       | Supported Containers              |   Description     |
 |   :---:           |   :---:                           |   :---            |
 | `get_allocator()` | vector, list, deque, forward_list | Get an allocator. |
-- Example Code: [allocation_function.cpp](../example_code/allocator_function.cpp)
+- Example Code: [observer_functions.cpp](../example_code/observer_functions.cpp) 
 
 ### C++ Sequence Container's Non-member function overloads
 |   Functions               | Supported Containers                      |   Description                             |
