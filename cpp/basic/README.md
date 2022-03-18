@@ -447,6 +447,21 @@ Both reference and pointers are used to change local variables of the one functi
 
     - Therefore, using reference is more prefered in the places like the copy constructor argument.
 
+## About C++ Function Overloading
+Function's overloading sequence are described below:
+1. Find the same data type function.
+2. Change the data type as below and find the function
+    - `Char`, `unsigned char`, `short` -> `int`
+    - `Unsingned short` can be changed to `int` or `unsinged int` by it's size.
+    - `Float` -> `Double`
+    - `Enum` -> `int`
+3. Change the data type more comprehensively and find the target function.
+    - numeric type changed to numeric type.
+    - `Enum` type changed to any numeric type.
+    - `0` changed to pointer type or numeric type.
+    - Pointer can be changed to `void`
+
+
 # Reference
 - GeeksforGeeks: [C++ Programming Language](https://www.geeksforgeeks.org/c-plus-plus/?ref=shm)
 

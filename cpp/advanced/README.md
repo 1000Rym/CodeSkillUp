@@ -40,25 +40,38 @@ The main aim of OOP is to bind together the data and the functions that operate 
 The standard Template Library(STL) is a set of C++ template classes to provide common programming data structures and functions as lists, stacks, arrays, etc. The STL have the following components: 
  - Containers
  - Algorithms
- - Functions
+ - Functors
  - Iterators
 
 ### STL Containers in C++
 Containers store objects and data. We can seperate the containers as the follows:
 - [Sequence Containers](stl/containers/sequence_containers/README.md): Access data in a sequential manner: __vector, list, deque, array, forward_list__.
 - [Container Adaptors](stl/containers/container_adapters/README.md): provide a different interface for sequential containers: __queue__, __priority_queue__, __stack__).
-- [ unordered ] Associative Containers: Implement unordered or sorted data structures that can be quickly searched(Big O(logn) complexity): __set__, __multi_set__, __map__, __multimap__, __unordered_set__, __unordered_multiset__, __unordered_map__, __unordered_multimap__).
+- [ (unordered) Associative Containers](stl/containers/associative_containers/README.md): Implement unordered or sorted data structures that can be quickly searched(Big O(logn) complexity): __set__, __multi_set__, __map__, __multimap__, __unordered_set__, __unordered_multiset__, __unordered_map__, __unordered_multimap__).
 
-### STL Algorithms in C++
-STL algorithms contain the following features. 
-- Sorting
-- Searching
-- Others
-    - Array Algorithms
-    - Partition Operations
-    - Numeric: valrray
+### STL: Functors
+__Functor__(or function object) is a C++ class that acts like a function.
+- Example Code: [functor_example](stl/example_code/functor_example.cpp)
 
-### STL: Others
-- Functors
-- Iterators
-- Utility: [__Pair__](stl/containers/pair/README.md)
+### STL: Iterators
+An __Iterator__ is an object (like the pointer) that points to an element inside the container. The pointer can point to elements in an array and can iterate through them using the increament operator(++). There are following iterators in the cpp.
+
+| Iterator      | Description                           | Features                                                                                          | Limitations                                                                           | 
+|:---           |:---                                   | :---                                                                                              |:---                                                                                   |
+|input          | Using for sequential accesing         | Single-Pass algorithm, Equality/Inequality, Dereferenceing, Incrementable, Swappable              | Assigning, Decremented, Multi-pass algorithm, Rational Operator, Arithmatic Operators |
+|output         | Using for sequential assigning        | Single-Pass algorithm, Equality/Inequality, Dereferenceing, Incrementable, Swappable              | Accessing, Decremented, Multi-pass algorithm, Rational Operator, Arithmatic Operators |
+|forward        | input + output, but forwardable only  | Multi-Pass algorithm, Equality/Inequality,  Dereferenceing, Incrementable, Swappable              | Decremented, Rational Operator, Arithmatic Operators, Dereference OP(`[]`)            |
+|bidirection    | forward + backward                    | Multi-Pass algorithm, Equality/Inequality,  Dereferenceing, Incrementable, Decremented Swappable  | Rational Operator, Arithmatic Operators, Dereference OP(`[]`)                         |
+|random access  | most powerful                         | Multi-Pass algorithm, Equality/Inequality,  Dereferenceing, Incrementable, Decremented Swappable   Rational Operator, Arithmatic Operators, Dereference OP(`[]`)                         ||
+
+Note:
+- Equality/Inequality Comparision: Use `==`, `!=` operator for comparision.
+- Dereferenceing: `*A` to derefernce the element  and `A->m` to acceess the element. 
+- Incrementable:  Use the post|pre increment (`++()`, `()++`) to access next element. 
+- Swappable: Exchange the contents with the other one.
+
+### STL: Utility
+- [__Pair__](stl/containers/pair/README.md) : Pair is used to combine two different type values together. 
+
+## Reference
+[GeeksForGeeks: Introduction to Iterators in C++](https://www.geeksforgeeks.org/introduction-iterators-c/)
