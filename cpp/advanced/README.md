@@ -64,6 +64,22 @@ An __Iterator__ is an object (like the pointer) that points to an element inside
 |bidirection    | forward + backward                    | Multi-Pass algorithm, Equality/Inequality,  Dereferenceing, Incrementable, Decremented Swappable  | Rational Operator, Arithmatic Operators, Dereference OP(`[]`)                         |
 |random access  | most powerful                         | Multi-Pass algorithm, Equality/Inequality,  Dereferenceing, Incrementable, Decremented Swappable   Rational Operator, Arithmatic Operators, Dereference OP(`[]`)                         ||
 
+
+- Container's iterator type:
+    |  Container        | Types                     |
+    |  :---:            | :---:                     |
+    |  Vector           | Random-Access             |
+    |  List             | Bidrectional              |
+    |  Deque            | Random-Access             |
+    |  Map              | Bidrectional              |
+    |  Multimap         | Bidirectional             |
+    |  Set              | Bidirectional             |
+    |  Multiset         | Bidirectional             |
+    |  Stack            | No iterator Supported.    |
+    |  Queue            | No iterator Supported.    |
+    | Priority Queue    | No iterator Supported.    |
+
+
 Note:
 - Equality/Inequality Comparision: Use `==`, `!=` operator for comparision.
 - Dereferenceing: `*A` to derefernce the element  and `A->m` to acceess the element. 
