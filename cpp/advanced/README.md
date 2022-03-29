@@ -89,5 +89,39 @@ Note:
 ### STL: Utility
 - [__Pair__](stl/containers/pair/README.md) : Pair is used to combine two different type values together. 
 
+
+## About Casting
+- Explicit-Cast in Original C: 
+```cpp
+int_variable = (int)float_variable;
+ptr = (DataType *)other_ptr;
+```
+- __Shortcomings__ in original C Explicit-Cast:
+    - Complier could not check the logical errors.
+    - Low readablility : `function((int)variable)`
+
+- In C++ we supports the following casting. 
+    - `static_cast` : converts between types using a combination of implicit and user-defined conversions.
+        ```cpp
+            data_type *var_name = static_cast <data_type>(pointer_variable);
+        ```
+    - `const_cast` : change the constant value of any object(remove `const` nature of any object.)
+        ```cpp
+            data_type *var_name = const_cast <data_type>(pointer_variable);
+        ```
+    - `dynamic_cast` : using for the downcasting
+        - downcasting: casting a base class pointer(or reference) to derived class pointer(or reference).
+        - upcasting: casting a derived class pointer(or reference) to base class pointer(or reference). 
+        ```cpp
+            data_type *var_name = dynamic_cast <data_type>(pointer_variable);
+        ```
+    - `reinterpret_cast`: do cast via unrelated pointers. It does not check if the pointer type and data pointed by the pointer is same or not(dangerous 
+    behavior). 
+        ```cpp
+            data_type *var_name = reinterpret_cast <data_type>(pointer_variable);
+        ```
+- example code: [cast_examples.cpp](../exercise/cast_examples.cpp)
+
+
 ## Reference
 [GeeksForGeeks: Introduction to Iterators in C++](https://www.geeksforgeeks.org/introduction-iterators-c/)

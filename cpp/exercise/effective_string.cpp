@@ -7,23 +7,29 @@ using std::endl;
 Coding Exercise: Made for coding exercise, supports effective and customised string.
 - constructor: char, char*, copy constructor.
 - Operator:
-    - friend use case: use friend to support customised effective string in &ostream operator<< 
+    - friend use case: use friend to support customised effective string in &ostream operator<<
     - Operator(=)
+    - use case of explicit mutable
 - supports string comparison.
 */
 class EffectiveString{
-    private : 
+    private :
         char* str_content_;
         int str_len_;
-    
+
     public :
         EffectiveString();
+
+        // Avoid that EffectiveString(int) called wrongly by users ->  EffectiveString my_str_int = 3;
+        explicit EffectiveString(int capacity);
         template<typename T> EffectiveString(const T t);
-        EffectiveString&  operator=(char c);
-        EffectiveString&  operator=(const char* chars);
+        EffectiveString& operator=(char c);
+        EffectiveString& operator=(const char* chars);
+        EffectiveString operator+(const EffectiveString& to_add) const;
+
         char at(int index) const;
         char operator[](int index) const;
-        
+
         // implement insert methods.
         template<typename T>EffectiveString& insert(int position, T contents);
 
@@ -47,6 +53,22 @@ EffectiveString& EffectiveString::operator=(const char* str){
     return *this;
 }
 
+// operator+: add a new string to current string
+EffectiveString EffectiveString::operator+(const EffectiveString& to_add) const{
+    int temp_length = str_len_ + to_add.str_len_; 
+    char* temp = new char[temp_length];
+    for (int i = 0 ; i < temp_length; i ++){
+        if(i < str_len_){
+            temp[i] = str_content_[i];
+        }else{
+            temp[i] = to_add.str_content_[i-str_len_];
+        }
+    }
+
+    return EffectiveString(temp);
+
+}
+
 // Constructor: default
 EffectiveString::EffectiveString():str_len_(0), str_content_(nullptr){}
 
@@ -54,6 +76,13 @@ EffectiveString::EffectiveString():str_len_(0), str_content_(nullptr){}
 template<typename T>
 EffectiveString :: EffectiveString(const T t){
     this->operator=(t);
+}
+
+// allocate memory with capacity size.
+EffectiveString :: EffectiveString(int capacity){
+    str_content_ = new char[capacity];
+    str_len_ = 0;
+    cout <<  "allocate the capacity " << capacity <<  " size memory" <<endl;
 }
 
 // Use friend to let the ostream operator supports Effective string class.
@@ -91,14 +120,19 @@ EffectiveString& EffectiveString::insert(int position, T contents){
         delete[] str_content_pre;
         str_len_ = new_len;
     }
-    return *this; 
+    return *this;
 }
+
+
 
 int main(){
     EffectiveString my_str = "Hello world!";
-    EffectiveString a;
+    EffectiveString my_str1 = "I am Lin";
     cout<< my_str << endl;
     cout << my_str[3] << endl;
     my_str.insert(3, "t3");
-    cout << "The string changed after the insertion:" << my_str << endl; 
+    cout << "The string changed after the insertion:" << my_str << endl;
+
+    EffectiveString my_str3 = my_str + my_str1;
+    cout << my_str3 << endl;
 }
