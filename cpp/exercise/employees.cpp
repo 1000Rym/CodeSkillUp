@@ -21,10 +21,16 @@ class Employee{
         Employee() = default;
         Employee(string name, int rank):name_(name), rank_(rank){}
         
-        virtual void print_info(){
+        void print_info(){
            cout << "user name: " << name_ 
            << ", salary: " << calc_salery() << endl;  
         }
+
+        // To avoid memory leack add virtual on deconstructor function.
+        virtual ~Employee(){
+            cout << "Employee is released" <<endl;
+        }
+
 };
 
 /*
@@ -38,6 +44,9 @@ class Manager : public Employee{
 
     public: 
         Manager(string name, int rank) : Employee(name, rank){}
+        ~Manager(){
+            cout << "Manager is released." <<endl;
+        }
 };
 
 /*
@@ -104,5 +113,10 @@ int main(){
     emp_list.add_manager(ben);
     emp_list.add_employee(woody);
     emp_list.print_members();
+    
+    // Since we add virtual in front of base deconstructor function,
+    // base class is also called when it start release.
+    // > Manager is released.
+    // > Employee is released
+    delete ben;
 }
-

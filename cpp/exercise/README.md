@@ -20,8 +20,6 @@ In this page, we are going to solve simple cpp quiz for reviewing and exercising
         - friend use case: use friend to support customised effective string in &ostream operator<< 
         - Operator(=, [])
         - supports string comparison.
-    - `friend` use case and support `std::<<` operator.
-
+    - `friend` use case and support `std::<<` operator
 - [const_mutable.cpp](const_mutable.cpp): Check the use case of the `mutable` member variable in `const` function.
-- [employees.cpp](employees.cpp): The simple programs that manage the employees for practice base and derived class, and how to use `virtual` member function.
-
+- [employees.cpp](employees.cpp): The simple programs sthat manage the employees for practice base and derived class, and how to use `virtual` member function.ßß

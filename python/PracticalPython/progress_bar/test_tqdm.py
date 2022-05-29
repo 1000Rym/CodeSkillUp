@@ -1,7 +1,6 @@
 # This python file is made for 
 # the testing tqpm progress bar
-from tqdm import tqdm 
-from tqdm import trange
+from tqdm import tqdm, trange
 import time
 
 def test_tqdm(max_num, sleep_interval):

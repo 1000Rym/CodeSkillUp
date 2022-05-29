@@ -89,8 +89,29 @@ Note:
 ### STL: Utility
 - [__Pair__](stl/containers/pair/README.md) : Pair is used to combine two different type values together. 
 
+### STL Algorithm
+#### STL Sorting Algorithm
+- `sort` : Original sort used in c++.
+- `stable_sort`: Unlike sort, stable sort will keep original when the value is same, but sacrifice the speed.
+- `partial_sort`: Sort the partial parts of the container.
+- example code: [sort_example](/stl/example_code/sort_example.cpp)
 
-## About Casting
+####  STL Remove
+`remove_if` : Remove the container if fits condition.
+- example code: [remove_example.cpp](/stl/example_code/remove_example.cpp)
+
+### Lambda Expression in C++
+Lamda expression was introduced in C++ 11, to supports short snippets of code that are not going to be reuse and not worth naming.
+- Lambda Expression: ``` [capture clase] (parameters) -> return_type { definition of method } ```
+- Capture external variables from enclosing scope:
+    1. Capture by reference: `[&]`
+    1. Capture by copied value `[variable]`
+    1. Capture by all accessable value: `[=]`
+    1. Capture from both(mixed capture): `[a, &b]`
+- example code: [about_lambda.cpp](../exercise/about_lambda.cpp)
+
+
+## Casting in C++
 - Explicit-Cast in Original C: 
 ```cpp
 int_variable = (int)float_variable;
@@ -122,6 +143,118 @@ ptr = (DataType *)other_ptr;
         ```
 - example code: [cast_examples.cpp](../exercise/cast_examples.cpp)
 
+## About virtual Function.
+- When the function virtual fucntion is called, it will call derived class's function.
+- Don't forget add `virtual` on deconstructor function in base class.
+- example code: [employees.cpp](../exercise/employees.cpp)
+ 
+## About Multiple Inheritance
+In C++, One class can inherited from the multiple class, we call this for multi-inheritance.
+- example code: [about_inheritance.cpp](inheritance/about_inheritance.cpp)
+- Be careful the __diamond inheritance__, __dreadful dianmond of derivation__. 
+    - To avoid __diamond inheritance__, we can add __`virtual`__ in front of the base class when inheritance.
+    ```cpp
+        class Human{
+            public:
+                string name;
+                ...
+        };
 
-## Reference
-[GeeksForGeeks: Introduction to Iterators in C++](https://www.geeksforgeeks.org/introduction-iterators-c/)
+        class SportsLikeHuman : public virtual Human{
+            ...
+        };
+
+        class ComputerLikeHuman : public virtaul Human{
+            ...
+        };
+
+        class Me: public SportsLikeHuman, public ComputerLikeHuman{
+            ...
+        };
+    ```
+
+## Generic Programming
+### How to use template?
+- Use template with multiple types. 
+    - Transfer type and data via template `template_function<DataType, data>(params...)`  
+    - example code: [about_template.cpp](../exercise/about_template.cpp)
+        - Transfer template class or struct with default type.
+            ```cpp
+            template <typename T, typename Comp = Compare<T>>
+            T min(T a, T b){
+                Comp comp; 
+                if(comp(a, b)){
+                    return a; 
+                }else{
+                    return b;
+                }
+            }
+            ```
+        - Variadic templates (Parameter Pack): Variadic templates are class or function templates that can take any variable(zero or more) number of arguments. 
+            ```cpp
+            template <typename T>
+            void print(T arg){
+                cout << arg << endl;
+            }
+
+            // variadic template function.
+            template <typename T, typename... Types>
+            void print(T arg, Types... args) {
+                cout << arg << " ";
+                print(args...);
+            }
+            ```
+        - Fold expression
+            ```cpp
+            template<typename... Types>
+            double sum_all(Types... args){
+                return (... + args); // Fold expression supported from c++17
+            }
+            ```
+### Template Metaprogramming(TMP)
+Templates are used by the compiler to __generate temporary source code__, which is merged by the compiler with the rest of the source code and then compiled(The source code that generated when it is compiled).
+- Why use TMP?
+    - Since all logics are finished in compile time, we can speed up execution time(However it slowdown compile time).
+- However, when we use TMP, we need to careful the following __disadvantage__:
+    - Hard to implement.
+    - Hard to check bugs. 
+
+
+### Generic Programming Exercise
+- [generic_programming_ex1_arry.cpp](../exercise/generic_programming_ex1_array.cpp) : Implemen an customized array with generic programming. 
+- [generic_programming_ex2_gcd.cpp](../exercise/generic_programming_ex2_gcd.cpp) : Implement GCD(Greatest Common Divisor) with generic meta programming.
+- [generic_programming_ex3_ratio.cpp](../exercise/generic_programming_ex3_ratio.cpp): Implement a raio adder logic with generic meta programming.
+
+## Exception Handling in C++
+To throw an exception, we can simply use the syntax `throw`.
+- errors type
+    - `out_of_range` : when the range is out of range.
+    - `overflow_error` : using for the arthmetic overflow.
+    - `runtime_errror` : when the error dectected at the runtime.
+    - [other exceptions](http://www.cplusplus.com/reference/exception/exception/)
+- default exception: use `catch(...)` to handle default exception.
+    ```cpp
+        try{
+            // handle the process.
+        }catch(runtime_error e){
+            // handling runtime error.
+        }catch(...){
+            // default exception.
+        }
+    ```
+- example code:[excaption_handling.cpp](../exercise/exception_handling.cpp)
+
+## lvalue and rvalue in C Language
+- __`lvalue`__ : left-value which referes memory-location that identifies an object.
+    - we may use `&` to know the address of the target object.
+- __`rvalue`__ : right-value which refere data value that is stored at some address in memory.
+    - we can't know the address of the target object.
+    - we may use `&&` to refer the data.    
+
+- Code example:[lvalue_rvalue_reference.cpp](../exercise/lvalue_rvalue_reference.cpp)
+
+### About move sementics in C++
+
+
+
+## ReferenceGeeksForGeeks: Introduction to Iterators in C++](https://www.geeksforgeeks.org/introduction-iterators-c/)

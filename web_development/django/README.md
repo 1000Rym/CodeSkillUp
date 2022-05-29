@@ -181,7 +181,6 @@ Steps:
 
 - step2: From [views.py](ProTwo/AppTwo/views.py) read the form and if the form is valid `form.save(commit=true)` to submit the form and commit to databases.
 
-
 ### How to use URL Template Tagging 
 To use template URL tagging do the following things:
 - step1: Add the [my_app/urls.py](/learning_templates/basic_app/urls.py) 
@@ -264,6 +263,31 @@ Main steps for inheritance as the follows:
 - Define a class that inherited from `TemplateView`
     - set the basic html file in `template_name`
     - can inject data from `get_context_data()`
+
+
+## Advanced Topic: CBV(Class Based View)
+Django Provides powerful tools to use OOP and classes to use define views.
+
+- Function Based View VS Class Based View
+    ```python
+    # Function Based View
+    def index(request):
+        return render(request, 'index.html')
+
+    def IndexView(TemplateView):
+        template_name = 'index_html'
+    ```
+
+- How to do it?
+    ```python
+    from django.views.generic. import view
+    ```
+- New Models
+- New Templates
+
+
+
+    
 
 
 - Reference:
